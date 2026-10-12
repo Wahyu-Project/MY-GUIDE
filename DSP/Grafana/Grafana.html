@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Dashboard</title>
+    <!-- Menghubungkan file CSS -->
+    <link rel="stylesheet" href="Grafana.css">
+</head>
+<body>
+    
+    <div class="header">
+        <ul class="home">
+            <a href="../../index.html">HOME</a>
+        </ul>
+        <h1>Tools Grafana</h1>
+        <p>Tools Grafana membantu mempermudah dalam proses pemantauan (monitoring) data operasional usage terhadap resouce server AMP secara real-time. </p>
+    </div>
+    <br>
+    <div class = "header2">
+    <h2>Flow Proses Monitoring</h2>
+    </div>
+
+    <section class ="p1">
+    <h3>1. Grafana Dashboard</h3>
+        <p>Halaman utama Grafana-Dashboard memberikan ringkasan menyeluruh (overview) mengenai data usage CPU, Memory dan Disk secara real-time. Untuk mengakses Grafana team helpdesk bisa menggunakan Link dan user akun sebagai berikut :</p>
+        <ul>
+        <li>URL         : https://grafana.sig.id/</li>
+        <li>User        : monitoring</li>
+        <li>Password    : 1W1a]L8}s*Bz</li>
+        </ul>
+
+       <div class="Swipe-cover">  
+       <img src="Grafana Dashboard.jpg" alt="Grafana Dashboard">
+       </div>
+       
+        <p> Fokus Monitoring pada pergerakan grafik CPU, MEMORY dan DISK pada halaman Grafana-Dashboard pastikan pada fiture JOB pilih aws-linux, Host pilih Server AMP yang diinginkan.</p>
+        <p>Berikut ini adalah fungsi monitoring AMP Server CPU, MEMORY dan DISK :</p>
+        
+        <ol>
+            <li><strong>AMP Server - CPU</strong></li>
+            <p>Memantau tren beban prosesor server dari waktu ke waktu. Jika ada garis yang melonjak tajam (spike), itu menandakan adanya proses komputasi yang berat pada server.</p>
+            <li><strong>AMP Server - Memory</strong></li>
+            <p>Memantau penggunaan RAM. Garis yang datar dan konsisten menandakan penggunaan memory yang stabil, sebaliknya jika terdapat lonjakan tajam (spike), hal tersebut umumnya disebabkan oleh peningkatan trafik atau query data yang masif.</p>
+            <li><strong>AMP Server - Disk</strong></li>
+            <p>Memantau penggunaan Disk. Garis yang datar dan konsisten menandakan penggunaan memory yang stabil, sebaliknya jika terdapat lonjakan tajam (spike), menandakan terdapat proses tulis/baca yang intensif seperti backup, migrasi file besar, atau query basis data yang berat.</p>
+        </ol>
+    
+        <h3>2. Fiture Grafana-Dashboard</h3>
+        <p>Fiture Grafana-Dashboard dibuat untuk mempermudah pemantauan data secara fleksibel dan real-time. Team Helpdesk bisa bebas menyesuaikan rentang waktu, tingkat detail grafik, sampai pembaruan otomatis sesuai kebutuhan analisis tanpa perlu ribet ubah konfigurasi dari backend.</p>
+        <img src="Fiture Grafana.jpg" alt="image" class="img">
+        <ol>
+            <li><strong>Fiture JOB</strong></li>
+            <p>Sebagai filter variabel dinamis untuk menyaring dan mengelompokkan data metrik berdasarkan layanan server</p>
+            <li><strong>Interval (Interval Grafik)</strong></li>
+            <p>Menentukan jarak atau pemisahan rentang waktu antar titik data pada grafik (pada contoh : data dikelompokkan setiap 5 menit sekali).</p>
+            <li><strong>Host</strong></li>
+            <p>Team Helpdesk dapat memilih server yang ingin di tampilkan informasi detail tren pergerakan grafik penggunaan dab resouce pada sistem monitoring grafana.</p>
+            <li><strong>instance</strong></li>
+            <p>Team Helpdesk dapat memilih IP Addres beserta port server secara spesifik.</p>
+            <li><strong>Time Setting</strong></li>
+            <p>Menentukan cakupan rentang waktu riwayat data yang ingin ditampilkan pada dashboard (pilihan mulai dari 1 jam terakhir (1h), 1 hari terakhir (1d), hingga rentang khusus lewat opsi Custom).</p>
+            <li><strong>Refresh Interval</strong></li>
+            <p>Menentukan seberapa sering sistem memuat ulang (auto-refresh) data di dashboard secara otomatis (pada contoh: data diperbarui setiap 1 menit sekali).</p>
+        </ol>
+
+        <h3>3. Threshold (Ambang Batas)</h3>
+        
+        <p>Dalam prosoes monitoring team Helpdesk perlu memperhatikan <strong>threshold (ambang batas)</strong> yang telah disepakati oleh team (SIG) yakni <strong>90%</strong> yang digunakan sebagai nilai acuan toleransi untuk menentukan apakah kondisi CPU, Memory dan Disk masih dalam kategory normal atau sudah memasuki tahap kritis.</p>
+        <p>Langkah - langkah yang harus dilakukan bila terdapat usage mencapai atau melebihi <strong>threshold 90%</strong>, sebagai berikut :</p>
+        <ol>
+            <li>Cek Status Server pada PAM (CyberArk).</li>
+            <li>Eskalasi ke team Synxchro (Mas Adam) untuk dilakukan pengecekan lebih lanjut, dengan melampirkan capture grafik dan status server di CyberArk.</li>
+            <li>Secara Paralel informasikan ke user/PIC dari SIG bahwa terdapat penggunaan mencapai atau melebihi threshold 90% dan sedang dilakukan pengecekan.</li>
+            <li>Setelah dilakukan pengecekan informasikan Root Cause dan Action atau mitigasi dari hasil pengecekan.</li>
+            <li>Input ke file data log Spike dan bila menyebabkan kendala pada server masukan ke Incident Report sebagai Dokumentasi bila dibutuhkan User.</li>
+        </ol>
+        <h3>4. Lost Grafik</h3>
+        <p>Lost Grafik bisa disebabkan karena Server Down atau adanya restart aplikasi pengumpul metrik (Prometheus) setelah aktifitas houskeping.</p>
+        <ol>
+            <li>Cek Status Server pada PAM (CyberArk).</li>
+            <li>Eskalasi ke team Synxchro (Mas Adam) untuk dilakukan pengecekan lebih lanjut, dengan melampirkan capture lost grafik dan status server di CyberArk.</li>
+            <li>Secara Paralel informasikan ke user/PIC dari SIG bahwa terdapat lost grafik dan sedang dilakukan pengecekan.</li>
+            <li>Setelah dilakukan pengecekan informasikan Root Cause dan Action atau mitigasi dari hasil pengecekan.</li>
+            <li>Input ke file data Incident Report sebagai Dokumentasi bila dibutuhkan User.</li>
+        </ol>
+         </section> 
+
+    <footer>© Copyright : 2026 Local TNT</footer>
+   
+</body>
+
+</html>

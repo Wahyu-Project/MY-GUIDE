@@ -1,0 +1,4 @@
+.docs {
+     min-width: 100%; /* Agar satu gambar memenuhi satu kotak */
+     height: 800px; /* Agar satu gambar memenuhi satu kotak */
+}

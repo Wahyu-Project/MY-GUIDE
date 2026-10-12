@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Dashboard</title>
+    <!-- Menghubungkan file CSS -->
+    <link rel="stylesheet" href="aws.css">
+</head>
+<body>
+    
+    <div class="header">
+        <ul class="home">
+            <a href="../../index.html">HOME</a>
+        </ul>
+        <h1>AWS CloudWatch</h1>
+        <p>Tools Monitoring CloudWatch dari Amazon Web Services (AWS) membantu mempermudah dalam proses pemantauan (monitoring) data operasional usage terhadap resouce server AMP secara real-time. </p>
+    </div>
+    <br>
+    <div class = "header2">
+    <h2>Flow Proses Monitoring</h2>
+    </div>
+
+    <div class ="p1">
+    <h3>1. AMP Dashboard</h3>
+        <p>Halaman utama AMP-Dashboard memberikan ringkasan menyeluruh (overview) mengenai data usage CPU, Memory dan Disk secara real-time. Untuk mengakses AWS CloudWatch bisa menggunakan Link dan user akun sebagai berikut :</p>
+        <ol>
+        <ul>URL         : https://cloudwatch.amazonaws.com/</ul>
+        <ul>User        : helpdesk@tirtanawasena.com</ul>
+        <ul>Password    : TnTHelpdesk@!1</ul>
+        </ol>
+         <div class="Navigasi-scroll">
+    <button class="Fiture-Slide prev-cover" onclick="scrollSlider(-1)">❮</button>
+    <button class="Fiture-Slide next-cover" onclick="scrollSlider(1)">❯</button>
+       <aside class="Swipe-cover">  
+       <img src="AWS_Dashboar.jpg" alt="AWS Dashboard">
+       <img src="CPU.jpg" alt="CPU">
+       <img src="Memory.jpg" alt="Stasiun">
+       <img src="DISK.jpg" alt="Stasiun">
+    
+       </aside>
+       </div>
+       <script src="../../Fiture.js"></script>
+       
+        <p> Fokus Monitoring pada pergerakan grafik CPU, MEMORY dan DISK pada halaman AMP Dashboard pastikan pilih Maximize dan setting standar Maximum pada masing - masing server. Berikut ini adalah fungsi monitoring <strong> AMP Server CPU, MEMORY & DISK </strong>:</p>
+        
+        <table border="1">
+      <tr>
+        <th class="Table_1">AMP Server CPU</th>
+        <th class="Table_2">AMP Server MEMORY</th>
+        <th class="Table_3">AMP Server DISK</th>
+      </tr>
+      <tr>
+        <td>Memantau tren beban prosesor server dari waktu ke waktu. Jika ada garis yang melonjak tajam (spike), itu menandakan adanya proses komputasi yang berat pada server.</td>
+        <td>Memantau penggunaan RAM bila terdapat garis yang datar dan konsisten menandakan penggunaan memory yang stabil, sebaliknya jika terdapat lonjakan tajam (spike), hal tersebut umumnya disebabkan oleh peningkatan trafik atau query data yang masif.</td>
+        <td>Memantau tren beban prosesor server dari waktu ke waktu. Jika ada garis yang melonjak tajam (spike), itu menandakan adanya proses komputasi yang berat pada server.</td>
+      </tr>
+    </table> 
+    
+    
+        <h3>2. Fiture AMP Dashboard</h3>
+        <p>Fiture AMP Dashboard dibuat untuk mempermudah pemantauan data secara fleksibel dan real-time. Team Helpdesk bisa bebas menyesuaikan rentang waktu, tingkat detail grafik, zona waktu, sampai pembaruan otomatis sesuai kebutuhan analisis tanpa perlu ribet ubah konfigurasi dari backend.</p>
+        <img src="Fiture_aws.jpg" alt="image" class="img">
+
+    <table border="1">
+    
+    <tr>
+        <th class="Table_v2">Fiture Aws</th>
+        <th class="Table_v2">Fungsi FIture</th>
+    </tr>
+    <tr>
+        <th class="Table_v2_1">Interval (Interval Grafik)</th>
+        <td>Menentukan jarak atau pemisahan rentang waktu antar titik data pada grafik (pada contoh : data dikelompokkan setiap 5 menit sekali)</td>
+    </tr>
+    <tr>
+    <th class="Table_v2_1">Standar Option</th>
+        <td>Menentukan metode kalkulasi atau agregasi data yang digunakan untuk menampilkan angka pada grafik (pada contoh : menggunakan nilai rata-rata atau Average).</td>
+    </tr>
+    <tr>
+        <th class="Table_v2_1">Time Setting</th>
+        <td>Menentukan cakupan rentang waktu riwayat data yang ingin ditampilkan pada dashboard (pilihan mulai dari 1 jam terakhir (1h), 1 hari terakhir (1d), hingga rentang khusus lewat opsi Custom).</td>
+    </tr>
+    <tr>
+        <th class="Table_v2_1">Time Local</th>
+        <td>Menentukan acuan zona waktu (timezone) yang dipakai untuk membaca waktu pada sumbu grafik, seperti mengikuti zona waktu lokal perangkat Anda (Local timezone) atau UTC.</td>
+    </tr>
+    <tr>
+        <th class="Table_v2_1">Refresh Interval</th>
+        <td>Menentukan seberapa sering sistem memuat ulang (auto-refresh) data di dashboard secara otomatis (pada contoh: data diperbarui setiap 2 menit sekali).</td>
+    </tr>
+    </table>
+
+
+        <h3>3. Threshold (Ambang Batas)</h3>
+        
+        <p>Dalam prosoes monitoring team Helpdesk perlu memperhatikan <strong>threshold (ambang batas)</strong> yang telah disepakati oleh team (SIG) yakni <strong>80%</strong> yang digunakan sebagai nilai acuan toleransi untuk menentukan apakah kondisi CPU, Memory dan Disk masih dalam kategory normal atau sudah memasuki tahap kritis.</p>
+        <p>Langkah - langkah yang harus dilakukan bila terdapat usage mencapai atau melebihi <strong>threshold 80%</strong>, sebagai berikut :</p>
+        <ol>
+            <li>Cek Status Server pada PAM (CyberArk).</li>
+            <li>Eskalasi ke team Synxchro (Mas Anggi) untuk dilakukan pengecekan lebih lanjut, dengan melampirkan capture grafik dan status server di CyberArk.</li>
+            <li>Secara Paralel informasikan ke user/PIC dari SIG bahwa terdapat penggunaan mencapai atau melebihi threshold 80% dan sedang dilakukan pengecekan.</li>
+            <li>Setelah dilakukan pengecekan informasikan Root Cause dan Action atau mitigasi dari hasil pengecekan.</li>
+            <li>Input ke file data log Spike dan bila menyebabkan kendala pada server masukan ke Incident Report sebagai Dokumentasi bila dibutuhkan User.</li>
+        </ol>
+        <h3>4. Lost Grafik</h3>
+        <p>Lost Grafik bisa disebabkan karena Server Down atau adanya restart aplikasi pengumpul metrik (Prometheus) setelah aktifitas houskeping.</p>
+        <ol>
+            <li>Cek Status Server pada PAM (CyberArk).</li>
+            <li>Eskalasi ke team Synxchro (Mas Anggi) untuk dilakukan pengecekan lebih lanjut, dengan melampirkan capture lost grafik dan status server di CyberArk.</li>
+            <li>Secara Paralel informasikan ke user/PIC dari SIG bahwa terdapat lost grafik dan sedang dilakukan pengecekan.</li>
+            <li>Setelah dilakukan pengecekan informasikan Root Cause dan Action atau mitigasi dari hasil pengecekan.</li>
+            <li>Input ke file data Incident Report sebagai Dokumentasi bila dibutuhkan User.</li>
+        </ol>
+        </div> 
+
+    <footer>© Copyright : 2026 Local TNT</footer>
+   
+</body>
+
+</html>

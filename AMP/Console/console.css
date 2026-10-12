@@ -1,0 +1,84 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;}
+
+.header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.home {
+    text-align: left;
+  a {
+    display: inline-block;
+    background-color: green;
+    text-decoration:unset; 
+    font-size: 14px; 
+    color: white; 
+    padding: 10px;
+    border-radius: 20px;
+    margin: 0%;}
+}
+.home :hover {
+    transform: translateY(-4px); /* Mengangkat kartu ke atas */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Pertegas bayangan di bawahnya */
+}
+
+.header2 {
+    text-align: center;
+}
+
+.p1 {
+    margin: 5%;}
+
+.img {
+    width: 80%;
+    max-width: 100%;
+    min-height: 10%;
+    max-height: 600px;
+    object-position: center;
+    margin :0 auto;
+    display: block;
+}
+
+
+table {
+    margin-bottom: 35px;
+    margin :0 auto;
+}
+
+.Table_1 {
+    background-color: green;
+}
+
+.Table_2  {
+    background-color:rgba(0, 0, 255, 0.661);
+}
+
+.Table_3 {
+    background-color: rgba(255, 68, 0, 0.853);
+}
+
+th, td {
+    padding : 10px;
+}
+
+.Table_v2 {
+    background-color: green;
+    padding : 10px;
+}
+
+footer {
+    background-color: green;
+    text-decoration:unset; 
+    font-size: 20px; 
+    color: white; 
+    padding: 15px;
+    margin: 0%;
+    text-align: center;}
+
+  

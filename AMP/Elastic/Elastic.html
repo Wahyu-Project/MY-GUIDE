@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Dashboard</title>
+    <!-- Menghubungkan file CSS -->
+    <link rel="stylesheet" href="Elastic.css">
+</head>
+<body>
+    
+    <div class="header">
+        <ul class="home">
+            <a href="../../index.html">HOME</a>
+        </ul>
+        <h1>Elasticsearch - Kibana</h1>
+        <p>Tools Elasticsearch adalah search engine & analytics library yang bertugas mengumpulkan, mengindeks, serta menyimpan data log server AMP secara real-time dan terpusat lalu divisualisasikan melalui Kibana untuk merubah data dalam bentuk grafik dan diagram dalam satu Dashboard sehingga team helpdesk dapat melakukan pengecekan log Endpoint Erorr dengan cepat untuk kebutuhan troubleshooting.</p>
+    </div>
+    <br>
+    <div class = "header2">
+    <h2>Flow Proses Monitoring</h2>
+    </div>
+    
+    
+  <section class ="p1">
+    <h3>1. Elasticsearch - Kibana Dashboard</h3>
+        <p>Halaman Dashboard Elasticsearch - Kibana merupakan pusat pemantauan traffic API dan performa sistem secara real-time, yang menyajikan ringkasan metrik utama seperti total request, statistik status transaksi (Success, Failed, Exception), distribusi beban server core, serta tren lonjakan transaksi per menit dll. Dilengkapi dengan filter global yang fleksibel dan tabel log detail yang memuat data request/response body, execution time, hingga Response Code.</p>
+
+         <p>Untuk mengakses Elasticsearch - Kibana bisa menggunakan Link dan user akun sebagai berikut :</p>
+        <ul>
+        <li>URL         : https://integrasi-admin.sig.id/kibana/login</li>
+        <li>User        : elastic</li>
+        <li>Password    : oftFpYJs3yeyK09uqFb4</li>
+        </ul>
+
+    
+    <iframe class="docs" src = "https://integrasi-admin.sig.id/kibana/app/dashboards#/view"></iframe>
+    
+    
+        <p> Fokus Monitoring pada tools Elastic - Kibana yaitu untuk melihat berapa jumlah total Request Endpoint yang masuk kategori <strong> Success, Exception</strong> dan <strong> Failed</strong> pada retensi 60 hari kebelakang untuk data log yang lebih dari 60 hari akan dilakukan housekeeping, dari data endpoint yang memilki log pada tools Elastic - Kibana tersebut bisa dijadikan acuan atau rekomendasi untuk kebutuhan pengecekan dan troubleshooting, berikut ini adalah penjelasan detail terkait Total Request Success, Exception dan Failed. </p>
+    
+        <table border="1" class="Table">
+      <tr>
+        <th class="Table_Succsess">Success (Res Code 200)</th>
+        <th class="Table_Failed">Failed (Res Code 400)</th>
+        <th class="Table_Exception">Exception (Res Code 500)</th>
+        
+      </tr>
+      <tr>
+        
+        <td><strong>Analisis Data :</strong> Request Success dengan Res Code 200 menandakan Request dari client berhasil diterima, diproses, dan dikembalikan oleh sistem tanpa ada kendala.</td>
+        <td><strong>Analisis Data :</strong> Request gagal diproses yang umumnya disebabkan oleh kesalahan di sisi Client dikarenakan beberapa kondisi seperti format request salah, autentikasi gagal (token invalid), atau endpoint tidak ditemukan.</td>
+        <td><strong>Analisis Data :</strong> Request gagal karena terjadinya malfungsi pada sistem internal (Server-side error) yang dapat disebabkan karena database connection loss, timeout ke layanan pihak ketiga, atau bug aplikasi.</td>                                             
+      </tr> 
+       <tr>
+        <td><strong>Action :</strong> Tidak ada Action yang perlu dilakukan, jika user masih mengeluhkan kendala, konfirmasikan bahwa sistem berhasil merespons request arahkan pengecekan ke sisi eksternal (koneksi internet user, atau tampilan frontend/UI user).</td>
+        <td><strong>Action :</strong> Jika terdapat request Failed dalam jumlah masif, tim Helpdesk wajib melakukan penarikan data dengan mengekspor atau menyalin daftar endpoint pada log detail. Selanjutnya, periksa kolom request body dan response body untuk menganalisis parameter yang dikirimkan oleh user. Hasil analisis tersebut kemudian dilaporkan kepada PIC SIG (Pak Kardo) untuk dikoordinasikan langsung ke pihak user dan informasikan juga ke team synxchro untuk dilakukan pengecekan dari sisi service AMP.</td> 
+        <td><strong>Action :</strong> Jika terdapat request Exception dalam jumlah masif, tim Helpdesk harus segera menarik data daftar endpoint pada log detail dan mengecek detail error pada kolom request body serta response body. Informasi error yang ditemukan lalu diserahkan kepada PIC SIG (Pak Kardo) agar dapat segera ditindaklanjuti oleh tim terkait dan informasikan juga ke team synxchro untuk dilakukan pengecekan dari sisi service AMP.</td>   
+      </tr>
+    </table>    
+     <p><i>Note : untuk detail erorr Failed dan Exception dapat dilihat di kolom Request dan response pada menu detail request Elasticsearch - Kibana.</i></p>
+    <br>
+    <h3>2. Flow Penarikan Data Log Endpoint</h3>
+    <p>Sehubungan dengan kebutuhan data report weekly dan report monthly team helpdesk dapat melakukan penarikan, mengekspor atau menyalin data log endpoint pada tools Elastic - Kibana berdasarkan periode report, berikut ini adalah langkah - langkah proses penarikan log endpoint terdaftar, log endpoint Exception dan endpoint Failed berdasarkan periode report weekly dan report monthly.</p>
+    
+    <table border="1" class="Table">
+      <tr>  
+        <th colspan="2" class="Table2">Flow Penarikan data log Endpoint</th>
+      </tr>
+       <tr>
+        <th class="Table2">Cara Penarikan data Log Endpoint Active dan Hight Avarage duration</th>
+        <th class="Table2">Cara Penarikan data Log  Failed & Exception</th>
+      </tr>
+      <tr>
+        <td><ol>
+  <li>Modify Waktu sesuai dengan periode yang di inginkan</li>
+  <li>Klik Option titik 3 pada bagian Total By Endpoint lalu pilih more dan maximize</li>
+  <li>Setelah data log muncul team helpdesk dapat melihat informasi execution_time_ms dan response_body_length pada masing - masing endpoint</li>
+  <li>Team helpdesk dapat mendownload/export data pada menu Option titik 3.</li>
+</ol></td>
+        <td><ol>
+  <li>Buat Filter request berdasarkan Log request Failed & Exception</li>
+  <li>Modify Waktu sesuai dengan periode yang di inginkan</li>
+  <li>Klik Option titik 3 pada bagian Detail Request lalu pilih more dan maximize</li>
+  <li>Setelah data log team helpdesk dapat melihat informasi log error secara detail pada masing - masing endpoint</li>
+  <li>Team helpdesk dapat mendownload/export data pada menu Option titik 3.</li>
+</ol></td>                                             
+      </tr>
+      
+    </table>
+    <p><i>Note : Log Endpoint Active berdasarka Tier 1 - Log 2 Minggu (0-14 hari), Tier 2 - Log 30 Hari (15 - 30 hari), dan Tier 3 - Log 60 Hari (31 hari - 60 hari).</i></p>
+    </section>
+    <footer>© Copyright : 2026 Local TNT</footer>
+   
+</body>
+
+</html> 

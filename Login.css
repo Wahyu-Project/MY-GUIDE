@@ -1,0 +1,130 @@
+/* Reset CSS */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tampilan utama */
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Body mengikuti ukuran layar */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 100%;
+    height: 100vh;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.4)) ,url(Tnt.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* Container login */
+.Flex1 {
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    
+}
+
+/* Judul */
+.Flex1 h1 {
+    font-size: clamp(24px, 3vw, 36px);
+    margin-bottom: 20px;
+}
+
+/* Teks login */
+.Flex1 p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Form login */
+.Flex1 form {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Input username dan password */
+.Flex1 input {
+    width: 100%;
+    height: 42px;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Tombol masuk */
+.Flex1 button {
+    min-width: 100px;
+    min-height: 44px;
+    padding: 10px 20px;
+    background-color:#1F57B9;
+    color: white;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.Flex1 button:hover {
+    background-color: #006400;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    padding: 15px 10px;
+    margin-top: 0;
+    background-color: green;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Penyesuaian layar HP */
+@media (max-width: 600px) {
+    .Flex1 {
+        padding: 30px 16px;
+    }
+
+    .Flex1 h1 {
+        font-size: 24px;
+    }
+
+    .Flex1 p {
+        font-size: 16px;
+    }
+
+    .Flex1 form {
+        max-width: 100%;
+    }
+
+    footer {
+        font-size: 12px;
+        padding: 12px 8px;
+    }
+}
