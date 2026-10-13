@@ -1,120 +1,159 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Dashboard</title>
-    <!-- Menghubungkan file CSS -->
-    <link rel="stylesheet" href="aws.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS CloudWatch | Portal Dashboard</title>
+  <link rel="stylesheet" href="aws.css">
 </head>
 <body>
-    
-    <div class="header">
-        <ul class="home">
-            <a href="../../index.html">HOME</a>
-        </ul>
-        <h1>AWS CloudWatch</h1>
-        <p>Tools Monitoring CloudWatch dari Amazon Web Services (AWS) membantu mempermudah dalam proses pemantauan (monitoring) data operasional usage terhadap resouce server AMP secara real-time. </p>
+
+<header class="header">
+  <a class="home" href="../../index.html">← Home</a>
+  <div class="hero-grid">
+    <div>
+      <h1>AWS CloudWatch</h1>
+      <p>Tools monitoring dari Amazon Web Services (AWS) untuk memantau data usage resource server AMP secara real-time.</p>
     </div>
-    <br>
-    <div class = "header2">
-    <h2>Flow Proses Monitoring</h2>
+    <div class="gauge" aria-label="Ilustrasi ambang batas 80 persen">
+      <div class="gauge-top"><span>Threshold usage</span><strong>80%</strong></div>
+      <div class="bar"></div>
+      <div class="bar-labels"><span style="left:25%">Normal</span><span style="left:65%">Waspada</span><span style="left:90%">Kritis</span></div>
+      <small>CPU, Memory, Disk ≥ 80% harus dieskalasi.</small>
     </div>
+  </div>
+</header>
 
-    <div class ="p1">
-    <h3>1. AMP Dashboard</h3>
-        <p>Halaman utama AMP-Dashboard memberikan ringkasan menyeluruh (overview) mengenai data usage CPU, Memory dan Disk secara real-time. Untuk mengakses AWS CloudWatch bisa menggunakan Link dan user akun sebagai berikut :</p>
-        <ol>
-        <ul>URL         : https://cloudwatch.amazonaws.com/</ul>
-        <ul>User        : helpdesk@tirtanawasena.com</ul>
-        <ul>Password    : TnTHelpdesk@!1</ul>
-        </ol>
-         <div class="Navigasi-scroll">
-    <button class="Fiture-Slide prev-cover" onclick="scrollSlider(-1)">❮</button>
-    <button class="Fiture-Slide next-cover" onclick="scrollSlider(1)">❯</button>
-       <aside class="Swipe-cover">  
-       <img src="AWS_Dashboar.jpg" alt="AWS Dashboard">
-       <img src="CPU.jpg" alt="CPU">
-       <img src="Memory.jpg" alt="Stasiun">
-       <img src="DISK.jpg" alt="Stasiun">
-    
-       </aside>
-       </div>
-       <script src="../../Fiture.js"></script>
-       
-        <p> Fokus Monitoring pada pergerakan grafik CPU, MEMORY dan DISK pada halaman AMP Dashboard pastikan pilih Maximize dan setting standar Maximum pada masing - masing server. Berikut ini adalah fungsi monitoring <strong> AMP Server CPU, MEMORY & DISK </strong>:</p>
-        
-        <table border="1">
-      <tr>
-        <th class="Table_1">AMP Server CPU</th>
-        <th class="Table_2">AMP Server MEMORY</th>
-        <th class="Table_3">AMP Server DISK</th>
-      </tr>
-      <tr>
-        <td>Memantau tren beban prosesor server dari waktu ke waktu. Jika ada garis yang melonjak tajam (spike), itu menandakan adanya proses komputasi yang berat pada server.</td>
-        <td>Memantau penggunaan RAM bila terdapat garis yang datar dan konsisten menandakan penggunaan memory yang stabil, sebaliknya jika terdapat lonjakan tajam (spike), hal tersebut umumnya disebabkan oleh peningkatan trafik atau query data yang masif.</td>
-        <td>Memantau tren beban prosesor server dari waktu ke waktu. Jika ada garis yang melonjak tajam (spike), itu menandakan adanya proses komputasi yang berat pada server.</td>
-      </tr>
-    </table> 
-    
-    
-        <h3>2. Fiture AMP Dashboard</h3>
-        <p>Fiture AMP Dashboard dibuat untuk mempermudah pemantauan data secara fleksibel dan real-time. Team Helpdesk bisa bebas menyesuaikan rentang waktu, tingkat detail grafik, zona waktu, sampai pembaruan otomatis sesuai kebutuhan analisis tanpa perlu ribet ubah konfigurasi dari backend.</p>
-        <img src="Fiture_aws.jpg" alt="image" class="img">
+<div class="layout">
+  <nav class="toc" aria-label="Daftar isi">
+    <ul>
+      <li><a href="#dashboard">AMP Dashboard</a></li>
+      <li><a href="#fitur">Fitur Dashboard</a></li>
+      <li><a href="#threshold">Threshold</a></li>
+      <li><a href="#lost">Lost Grafik</a></li>
+    </ul>
+  </nav>
 
-    <table border="1">
-    
-    <tr>
-        <th class="Table_v2">Fiture Aws</th>
-        <th class="Table_v2">Fungsi FIture</th>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">Interval (Interval Grafik)</th>
-        <td>Menentukan jarak atau pemisahan rentang waktu antar titik data pada grafik (pada contoh : data dikelompokkan setiap 5 menit sekali)</td>
-    </tr>
-    <tr>
-    <th class="Table_v2_1">Standar Option</th>
-        <td>Menentukan metode kalkulasi atau agregasi data yang digunakan untuk menampilkan angka pada grafik (pada contoh : menggunakan nilai rata-rata atau Average).</td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">Time Setting</th>
-        <td>Menentukan cakupan rentang waktu riwayat data yang ingin ditampilkan pada dashboard (pilihan mulai dari 1 jam terakhir (1h), 1 hari terakhir (1d), hingga rentang khusus lewat opsi Custom).</td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">Time Local</th>
-        <td>Menentukan acuan zona waktu (timezone) yang dipakai untuk membaca waktu pada sumbu grafik, seperti mengikuti zona waktu lokal perangkat Anda (Local timezone) atau UTC.</td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">Refresh Interval</th>
-        <td>Menentukan seberapa sering sistem memuat ulang (auto-refresh) data di dashboard secara otomatis (pada contoh: data diperbarui setiap 2 menit sekali).</td>
-    </tr>
-    </table>
+  <main class="p1">
 
+    <section id="dashboard">
+      <h2><span class="sec-no">1.</span>AMP Dashboard</h2>
+      <p class="lead">Halaman utama AMP Dashboard memberikan ringkasan (overview) data usage CPU, Memory dan Disk secara real-time. Akses AWS CloudWatch dengan link dan akun berikut:</p>
 
-        <h3>3. Threshold (Ambang Batas)</h3>
-        
-        <p>Dalam prosoes monitoring team Helpdesk perlu memperhatikan <strong>threshold (ambang batas)</strong> yang telah disepakati oleh team (SIG) yakni <strong>80%</strong> yang digunakan sebagai nilai acuan toleransi untuk menentukan apakah kondisi CPU, Memory dan Disk masih dalam kategory normal atau sudah memasuki tahap kritis.</p>
-        <p>Langkah - langkah yang harus dilakukan bila terdapat usage mencapai atau melebihi <strong>threshold 80%</strong>, sebagai berikut :</p>
-        <ol>
-            <li>Cek Status Server pada PAM (CyberArk).</li>
-            <li>Eskalasi ke team Synxchro (Mas Anggi) untuk dilakukan pengecekan lebih lanjut, dengan melampirkan capture grafik dan status server di CyberArk.</li>
-            <li>Secara Paralel informasikan ke user/PIC dari SIG bahwa terdapat penggunaan mencapai atau melebihi threshold 80% dan sedang dilakukan pengecekan.</li>
-            <li>Setelah dilakukan pengecekan informasikan Root Cause dan Action atau mitigasi dari hasil pengecekan.</li>
-            <li>Input ke file data log Spike dan bila menyebabkan kendala pada server masukan ke Incident Report sebagai Dokumentasi bila dibutuhkan User.</li>
-        </ol>
-        <h3>4. Lost Grafik</h3>
-        <p>Lost Grafik bisa disebabkan karena Server Down atau adanya restart aplikasi pengumpul metrik (Prometheus) setelah aktifitas houskeping.</p>
-        <ol>
-            <li>Cek Status Server pada PAM (CyberArk).</li>
-            <li>Eskalasi ke team Synxchro (Mas Anggi) untuk dilakukan pengecekan lebih lanjut, dengan melampirkan capture lost grafik dan status server di CyberArk.</li>
-            <li>Secara Paralel informasikan ke user/PIC dari SIG bahwa terdapat lost grafik dan sedang dilakukan pengecekan.</li>
-            <li>Setelah dilakukan pengecekan informasikan Root Cause dan Action atau mitigasi dari hasil pengecekan.</li>
-            <li>Input ke file data Incident Report sebagai Dokumentasi bila dibutuhkan User.</li>
-        </ol>
-        </div> 
+      <dl class="cred">
+        <div><dt>URL</dt><dd>https://cloudwatch.amazonaws.com/</dd><span class="btns"><button type="button" data-copy="https://cloudwatch.amazonaws.com/">Salin</button></span></div>
+        <div><dt>User</dt><dd>helpdesk@tirtanawasena.com</dd><span class="btns"><button type="button" data-copy="helpdesk@tirtanawasena.com">Salin</button></span></div>
+        <div><dt>Password</dt><dd id="pw" data-v="Rahasia">••••••••••••</dd><span class="btns"><button type="button" id="pwToggle">Tampilkan</button><button type="button" data-copy="TnTHelpdesk@!1">Salin</button></span></div>
+      </dl>
 
-    <footer>© Copyright : 2026 Local TNT</footer>
-   
+      <div class="Navigasi-scroll">
+        <button class="Fiture-Slide prev-cover" aria-label="Gambar sebelumnya">❮</button>
+        <button class="Fiture-Slide next-cover" aria-label="Gambar berikutnya">❯</button>
+        <div class="dots" aria-hidden="true"></div>
+        <div class="Swipe-cover">
+          <figure class="slide"><img src="AWS_Dashboar.jpg" alt="AWS Dashboard"><figcaption>Dashboard</figcaption></figure>
+          <figure class="slide"><img src="CPU.jpg" alt="Grafik CPU"><figcaption>CPU</figcaption></figure>
+          <figure class="slide"><img src="Memory.jpg" alt="Grafik Memory"><figcaption>Memory</figcaption></figure>
+          <figure class="slide"><img src="DISK.jpg" alt="Grafik Disk"><figcaption>Disk</figcaption></figure>
+        </div>
+      </div>
+
+      <p>Fokuskan monitoring pada pergerakan grafik CPU, Memory dan Disk. Pilih <strong>Maximize</strong> dan setting standar <strong>Maximum</strong> pada masing-masing server. Fungsi monitoring tiap grafik:</p>
+
+      <div class="metrics">
+        <article class="metric m-cpu"><h3>AMP Server CPU</h3><p>Memantau tren beban prosesor server dari waktu ke waktu. Garis yang melonjak tajam (spike) menandakan proses komputasi berat pada server.</p></article>
+        <article class="metric m-mem"><h3>AMP Server Memory</h3><p>Memantau penggunaan RAM. Garis datar dan konsisten berarti stabil; lonjakan tajam umumnya karena peningkatan trafik atau query data yang masif.</p></article>
+        <article class="metric m-disk"><h3>AMP Server Disk</h3><p>Memantau penggunaan ruang penyimpanan. Kenaikan terus-menerus atau lonjakan mendadak menandakan disk mendekati penuh, misalnya karena log atau file besar.</p></article>
+      </div>
+    </section>
+
+    <section id="fitur">
+      <h2><span class="sec-no">2.</span>Fitur AMP Dashboard</h2>
+      <p class="lead">Team Helpdesk bisa menyesuaikan rentang waktu, detail grafik, zona waktu, hingga pembaruan otomatis tanpa mengubah konfigurasi dari backend.</p>
+      <img src="Fiture_aws.jpg" alt="Menu fitur AWS" class="img">
+      <dl class="feat">
+        <div><dt>Interval (Interval Grafik)</dt><dd>Menentukan jarak rentang waktu antar titik data pada grafik (contoh: data dikelompokkan setiap 5 menit).</dd></div>
+        <div><dt>Standar Option</dt><dd>Menentukan metode kalkulasi atau agregasi angka pada grafik (contoh: nilai rata-rata atau Average).</dd></div>
+        <div><dt>Time Setting</dt><dd>Menentukan cakupan riwayat data yang ditampilkan: 1 jam terakhir (1h), 1 hari terakhir (1d), hingga rentang khusus lewat opsi Custom.</dd></div>
+        <div><dt>Time Local</dt><dd>Menentukan acuan zona waktu pada sumbu grafik, mengikuti zona waktu lokal perangkat (Local timezone) atau UTC.</dd></div>
+        <div><dt>Refresh Interval</dt><dd>Menentukan seberapa sering data dimuat ulang otomatis (contoh: diperbarui setiap 2 menit).</dd></div>
+      </dl>
+    </section>
+
+    <section id="threshold">
+      <h2><span class="sec-no">3.</span>Threshold (Ambang Batas)</h2>
+      <div class="callout"><b>80%</b><span>Ambang batas yang disepakati team SIG. Di atas nilai ini, kondisi CPU, Memory atau Disk dianggap kritis.</span></div>
+      <p class="lead">Jika usage mencapai atau melebihi 80%, lakukan langkah berikut:</p>
+      <ol class="steps">
+        <li>Cek status server pada PAM (CyberArk).</li>
+        <li>Eskalasi ke team Synxchro (Mas Anggi) untuk pengecekan lebih lanjut, lampirkan capture grafik dan status server di CyberArk.</li>
+        <li>Secara paralel, informasikan ke user/PIC SIG bahwa usage mencapai atau melebihi threshold 80% dan sedang dilakukan pengecekan.</li>
+        <li>Setelah pengecekan, informasikan Root Cause dan Action atau mitigasi.</li>
+        <li>Input ke file data log Spike. Jika menyebabkan kendala pada server, masukkan juga ke Incident Report sebagai dokumentasi bila dibutuhkan user.</li>
+      </ol>
+    </section>
+
+    <section id="lost">
+      <h2><span class="sec-no">4.</span>Lost Grafik</h2>
+      <p class="lead">Lost grafik bisa disebabkan server down atau restart aplikasi pengumpul metrik (Prometheus) setelah aktivitas housekeeping.</p>
+      <ol class="steps">
+        <li>Cek status server pada PAM (CyberArk).</li>
+        <li>Eskalasi ke team Synxchro (Mas Anggi) untuk pengecekan lebih lanjut, lampirkan capture lost grafik dan status server di CyberArk.</li>
+        <li>Secara paralel, informasikan ke user/PIC SIG bahwa terdapat lost grafik dan sedang dilakukan pengecekan.</li>
+        <li>Setelah pengecekan, informasikan Root Cause dan Action atau mitigasi.</li>
+        <li>Input ke file data Incident Report sebagai dokumentasi bila dibutuhkan user.</li>
+      </ol>
+    </section>
+
+  </main>
+</div>
+
+<footer>© Copyright 2026 Local TNT</footer>
+
+<script>
+(function () {
+  // Slider
+  var track = document.querySelector('.Swipe-cover');
+  var slides = track.children, dotsBox = document.querySelector('.dots');
+  for (var i = 0; i < slides.length; i++) dotsBox.appendChild(document.createElement('i'));
+  var dots = dotsBox.children;
+  function idx() { return Math.round(track.scrollLeft / track.clientWidth); }
+  function mark() { for (var i = 0; i < dots.length; i++) dots[i].className = i === idx() ? 'on' : ''; }
+  function go(d) {
+    var n = (idx() + d + slides.length) % slides.length;
+    track.scrollTo({ left: n * track.clientWidth, behavior: 'smooth' });
+  }
+  track.addEventListener('scroll', mark); mark();
+  document.querySelector('.prev-cover').onclick = function () { go(-1); };
+  document.querySelector('.next-cover').onclick = function () { go(1); };
+
+  // Copy + show password
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.onclick = function () {
+      var t = b.textContent;
+      navigator.clipboard.writeText(b.dataset.copy).then(function () {
+        b.textContent = 'Tersalin'; setTimeout(function () { b.textContent = t; }, 1500);
+      });
+    };
+  });
+  var pw = document.getElementById('pw'), tg = document.getElementById('pwToggle'), shown = false;
+  tg.onclick = function () {
+    shown = !shown;
+    pw.textContent = shown ? pw.dataset.v : '••••••••••••';
+    tg.textContent = shown ? 'Sembunyikan' : 'Tampilkan';
+  };
+
+  // Active section in nav
+  var links = document.querySelectorAll('.toc a');
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) links.forEach(function (a) {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+      });
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  document.querySelectorAll('section[id]').forEach(function (s) { io.observe(s); });
+})();
+</script>
 </body>
-
 </html>
