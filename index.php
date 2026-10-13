@@ -63,7 +63,6 @@ if (!isset($_SESSION['user'])) {
         </article>
     </section>
     
-
     <div class="footer">
         &copy; 2026 Portal Internal
     </div>
