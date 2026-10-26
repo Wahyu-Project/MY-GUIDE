@@ -1,0 +1,18 @@
+full address:s:10.71.3.227
+server port:i:6969
+username:s:localhost\PSM@62695e92-8a8e-417f-86b7-28b12d91f5a3
+alternate shell:s:PSM@62695e92-8a8e-417f-86b7-28b12d91f5a3
+desktopwidth:i:1280
+desktopheight:i:800
+screen mode id:i:2
+redirectdrives:i:0
+drivestoredirect:s:
+redirectsmartcards:i:0
+EnableCredSspSupport:i:0
+redirectcomports:i:0
+remoteapplicationmode:i:1
+remoteapplicationprogram:s:||PSMInitSession
+remoteapplicationname:s:PSM-SSH
+disableconnectionsharing:i:1
+use multimon:i:0
+span monitors:i:0

@@ -1,81 +1,127 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Dashboard</title>
-    <!-- Menghubungkan file CSS -->
-    <link rel="stylesheet" href="Pam.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberArk PAM | Portal Dashboard</title>
+  <link rel="stylesheet" href="pam.css">
 </head>
 <body>
-    
-    <div class="header">
-        <ul class="home">
-            <a href="../../index.html">HOME</a>
-        </ul>
-        <h1>CyberArk PAM (Privileged Access Management)</h1>
-        <p>CyberArk PAM (Privileged Access Management) adalah solusi keamanan siber terkemuka yang dirancang untuk mengamankan, mengontrol, dan memantau akses istimewa (privileged access) dalam infrastruktur TI organisasi. Akses istimewa ini mencakup akun administrator, root, kredensial aplikasi, dan akses database yang memiliki hak penuh atas sistem. </p>
+
+<header class="header">
+  <a class="home" href="../../index.html">← Home</a>
+  <div class="hero-grid">
+    <div>
+      <h1>CyberArk PAM</h1>
+      <p>CyberArk PAM (Privileged Access Management) adalah solusi keamanan siber terkemuka yang dirancang untuk mengamankan, mengontrol, dan memantau akses istimewa (privileged access) dalam infrastruktur TI organisasi. Akses istimewa ini mencakup akun administrator, root, kredensial aplikasi, dan akses database yang memiliki hak penuh atas sistem.</p>
     </div>
-    <br>
-    <div class = "header2">
-    <h2>Flow Proses CyberArk PAM</h2>
-    </div>
+  </div>
+</header>
 
-    <div class ="p1">
-    <h3>1. CyberArk Aplication</h3>
-        <p>Penggunaan utama CyberArk PAM dilakukan melalui antarmuka web terpusat yang disebut PVWA (Password Vault Web Access) melalui halaman Website IDIRA. Pengguna berinteraksi dengan PVWA untuk mengambil kredensial, memulai sesi remote, atau mengelola akun istimewa. Berikut adalah alur kerja dan cara penggunaan fitur pada CyberArk PAM (Privileged Access Management).</p>
-        <ol>
-        <ul>URL         : https://aat4294.cyberark.cloud/userportal/identity/MyApps/VHJlZVRhYjphbGw%3D</ul>
-        </ol> 
-    
-       <aside>  
-       <video class ="Video" src="CyberArk_tutor.mp4" autoplay muted loop></video>
-       </aside>
-       
-       <h3>2. Flow Pengecekan Basic CyberArk</h3>
-        <p> CyberArk PAM (Privileged Access Management) dapat digunakan untuk melakukan pengecekan status server, resorce server, mengamankan, mengontrol, dan memantau akses istimewa (privileged access).</p>
+<div class="layout">
+  <nav class="toc" aria-label="Daftar isi">
+    <ul>
+      <li><a href="#aplikasi">CyberArk Application</a></li>
+      <li><a href="#pengecekan">Flow Pengecekan</a></li>
+    </ul>
+  </nav>
 
+  <main class="p1">
 
-         <table border="1">
-    <tr>
-        <th class="Table_v2">Menu</th>
-        <th class="Table_v2">Fungsi Menu</th>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">sudo su</th>
-        <td>berfungsi untuk beralih atau mengambil alih hak akses penuh sebagai Administrator Tertinggi (Root) di dalam server Linux.</td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">Uptime</th>
-        <td>Digunakan untuk melakukan pengecekan Status & Start Uptime</td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">Top</th>
-        <td>Digunakan untuk memantau proses dan penggunaan CPU secara real-time.</td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">free -h</th>
-        <td>Digunakan untuk mengecek status penggunaan kapasitas RAM dan swap (total, terpakai, dan sisa) dalam format angka yang mudah dibaca (MB/GB).</td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">systemctl status</th>
-        <td>Merupakan standar utama pada sistem operasi Linux modern (seperti Ubuntu Server) untuk memantau status layanan (service) real-time sedang menyala (running), mati (stopped), atau mengalami crash (failed).
-        <strong><p>Format : systemctl status [nama_service]</p>
-        <p>Contoh : systemctl status elasticsearch</p></strong>
-        </td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">systemctl start</th>
-        <td>berfungsi untuk menyalakan atau menjalankan kembali sebuah layanan (service) yang sedang dalam kondisi mati (inactive/stopped/dead) di server Linux.
-        <strong><p>Format : systemctl start [nama_service]</p>
-        <p>Contoh : systemctl start elasticsearch</p></strong>
-        </td>
-    </tr>
-    </table>
+    <section id="aplikasi">
+      <h2><span class="sec-no">1.</span>CyberArk Application</h2>
+      <p class="lead">Penggunaan utama CyberArk PAM dilakukan melalui antarmuka web terpusat yang disebut PVWA (Password Vault Web Access) melalui halaman Website IDIRA. Pengguna berinteraksi dengan PVWA untuk mengambil kredensial, memulai sesi remote, atau mengelola akun istimewa.</p>
+
+      <dl class="cred">
+        <div>
+          <dt>URL PVWA</dt>
+          <dd>https://aat4294.cyberark.cloud/userportal/identity/MyApps/VHJlZVRhYjphbGw%3D</dd>
+          <span class="btns"><button type="button" data-copy="https://aat4294.cyberark.cloud/userportal/identity/MyApps/VHJlZVRhYjphbGw%3D">Salin</button></span>
+        </div>
+      </dl>
+
+      <!-- Video tutorial menggunakan class .img agar menyesuaikan border dan ukuran -->
+      <video class="img" src="CyberArk_tutor.mp4" autoplay muted loop controls></video>
+    </section>
+
+    <section id="pengecekan">
+      <h2><span class="sec-no">2.</span>Flow Pengecekan Basic CyberArk</h2>
+      <p class="lead">CyberArk PAM dapat digunakan untuk melakukan pengecekan status server, resource server, mengamankan, mengontrol, dan memantau akses istimewa (privileged access).</p>
+      
+      <dl class="feat">
+        <div>
+          <dt>sudo su</dt>
+          <dd>Berfungsi untuk beralih atau mengambil alih hak akses penuh sebagai Administrator Tertinggi (Root) di dalam server Linux.</dd>
+        </div>
+        <div>
+          <dt>Uptime</dt>
+          <dd>Digunakan untuk melakukan pengecekan Status & Start Uptime server.</dd>
+        </div>
+        <div>
+          <dt>Top</dt>
+          <dd>Digunakan untuk memantau proses dan penggunaan CPU secara real-time.</dd>
+        </div>
+        <div>
+          <dt>free -h</dt>
+          <dd>Digunakan untuk mengecek status penggunaan kapasitas RAM dan swap (total, terpakai, dan sisa) dalam format angka yang mudah dibaca (MB/GB).</dd>
+        </div>
+        <div>
+          <dt>systemctl status</dt>
+          <dd>
+            Merupakan standar utama pada sistem operasi Linux modern untuk memantau status layanan (service) real-time apakah sedang menyala (running), mati (stopped), atau mengalami crash (failed).
+            <p>
+              <strong>Format:</strong> <code>systemctl status [nama_service]</code>
+              <br>
+              <strong>Contoh:</strong> <code>systemctl status elasticsearch</code>
+              </p>
+          </dd>
+        </div>
+        <div>
+          <dt>systemctl start</dt>
+          <dd>
+            Berfungsi untuk menyalakan atau menjalankan kembali sebuah layanan (service) yang sedang dalam kondisi mati (inactive/stopped/dead) di server Linux.
+            <p>
+              <strong>Format:</strong> <code>systemctl start [nama_service]</code>
+              <br>
+              <strong>Contoh:</strong> <code>systemctl start elasticsearch</code>
+            </p>
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+  </main>
+</div>
+
+<footer>© Copyright 2026 Local TNT</footer>
+
+<script>
+(function () {
+  // Fitur copy ke clipboard
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.onclick = function () {
+      var t = b.textContent;
+      navigator.clipboard.writeText(b.dataset.copy).then(function () {
+        b.textContent = 'Tersalin'; 
+        setTimeout(function () { b.textContent = t; }, 1500);
+      });
+    };
+  });
+
+  // Highlight bagian navigasi saat di-scroll
+  var links = document.querySelectorAll('.toc a');
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) {
+        links.forEach(function (a) {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
   
-    </div>
-    <footer>© Copyright : 2026 Local TNT</footer>
-   
+  document.querySelectorAll('section[id]').forEach(function (s) { io.observe(s); });
+})();
+</script>
 </body>
-
 </html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flow Ticket Servicedesk | Portal Dashboard</title>
+  <link rel="stylesheet" href="redeploy_undeploy.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <a class="home" href="../../index.php">← Home</a>
+    <div class="hero-grid">
+      <h1>Request Ticket ServiceDesk <span style="color: orangered;">Undeploy</span> / <span style="color: orangered;">Redeploy</span></h1>
+      <p>Panduan untuk rekan helpdesk dalam menangani request ticket: dari mengenali ticket baru, membuat evaluasi,
+        berkoordinasi dengan tim teknis, hingga menutup ticket dan memberi kabar ke requestor.</p>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Daftar isi">
+      <ul>
+        <li><a href="#langkah-1">Ticket diterima</a></li>
+        <li><a href="#langkah-2">Konfirmasi user</a></li>
+        <li><a href="#langkah-3">Buat evaluasi</a></li>
+        <li><a href="#langkah-4">Kirim email requestor</a></li>
+      </ul>
+    </nav>
+
+    <main class="p1">
+
+      <section id="langkah-1">
+        <h2><span class="sec-no">1.</span>Ticket diterima</h2>
+        <figure>
+          <a href="./assets/img/ticketDiterima.jpeg" target="_blank" rel="noopener">
+            <img src="./assets/img/ticketDiterima.jpeg" alt="Daftar pending request di Servicedesk">
+          </a>
+        </figure>
+        <ul>
+          <li>Untuk mengetahui ada ticket baru, lihat pada <strong>pending request</strong>.</li>
+        </ul>
+      </section>
+
+      <section id="langkah-2">
+        <h2><span class="sec-no">2.</span>Cek deskripsi ticket &amp; konfirmasi user</h2>
+        <figure>
+          <a href="./assets/img/cekDeskripsiTicket.jpeg" target="_blank" rel="noopener">
+            <img src="./assets/img/cekDeskripsiTicket.jpeg" alt="Detail deskripsi ticket">
+          </a>
+        </figure>
+        <ul>
+          <li>Cek deskripsi ticket untuk memastikan permintaan terkait dengan project apa. Pastikan setiap rekan
+            helpdesk mengerti maksud dan tujuan ticket tersebut.</li>
+          <li>Setelah memahami maksud ticket, konfirmasi dengan User (PIC) yang bertanggung jawab untuk memastikan user mengetahui ticket tersebut. 
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section id="langkah-3">
+        <h2><span class="sec-no">3.</span>Buat evaluasi</h2>
+        <figure>
+          <a href="./assets/img/Redeploy_desk.jpeg" target="_blank" rel="noopener">
+            <img src="./assets/img/Redeploy_desk.jpeg" alt="Body ticket tempat evaluasi diisi">
+          </a>
+        </figure>
+
+        <p class="lead">Evaluasi kebutuhan diisi pada body ticket (di dalam deskripsi ticket). Biasanya sudah ada format
+          dengan poin yang perlu diisi:</p>
+        <ol class="fields" type="a">
+          <li><b>a</b>Evaluasi Kebutuhan</li>
+          <li><b>b</b>Risk Management</li>
+          <li><b>c</b>Analisa Manfaat</li>
+          <li><b>d</b>Kebutuhan Resource</li>
+          <li><b>e</b>Estimasi Pekerjaan</li>
+          <li><b>f</b>Analisa Oleh</li>
+        </ol>
+
+        <h4>Cara mengisi evaluasi</h4>
+        <p>Buka menu <strong>Edit</strong> pada ticket:</p>
+        <figure class="narrow">
+          <a href="./assets/img/editEvaluasi.png" target="_blank" rel="noopener">
+            <img src="./assets/img/editEvaluasi.png" alt="Menu edit pada ticket">
+          </a>
+        </figure>
+        <p>Kemudian isi evaluasi kebutuhan sesuai format yang diminta:</p>
+        <figure>
+          <a href="./assets/img/formEvaluasiKebutuhan.png" target="_blank" rel="noopener">
+            <img src="./assets/img/formEvaluasiKebutuhan.png" alt="Form evaluasi kebutuhan">
+          </a>
+        </figure>
+        <div class="note">
+          <p><strong>Note:</strong> jika tidak ada format seperti gambar di atas, isi sendiri berdasarkan contoh di
+            bawah ini.</p>
+        </div>
+
+        <h4>Contoh evaluasi kebutuhan</h4>
+        <div class="doc">
+          <div class="doc-head">Contoh evaluasi kebutuhan</div>
+          <div class="doc-body">
+            <h5>Evaluasi Kebutuhan:</h5>
+            <p class="edit-block">Diperlukan redeploy API /md/api_sbi/update_so_sbi pada Synxchro PROD untuk mendukung
+              proses pembaruan Sales Order (SO) melalui integrasi API, sehingga API dapat digunakan kembali sesuai
+              kebutuhan operasional pada environment Production.</p>
+            <h5>Risk Management:</h5>
+            <ol class="edit-block">
+              <li>Redeploy gagal atau konfigurasi API tidak sesuai.</li>
+              <li>Koneksi ke sistem tujuan mengalami kendala.</li>
+              <li>Perlu dilakukan validasi setelah redeploy untuk memastikan API berjalan normal.</li>
+            </ol>
+            <h5>Analisa Manfaat:</h5>
+            <ol class="edit-block">
+              <li>Mendukung proses pembaruan Sales Order melalui API.</li>
+              <li>Memastikan API dapat digunakan pada environment Production.</li>
+              <li>Mengurangi input manual dan potensi human error.</li>
+              <li>Menjaga kelancaran proses integrasi sistem.</li>
+            </ol>
+            <h5>Kebutuhan Resource:</h5>
+            <ol class="edit-block">
+              <li>Synxchro PROD.</li>
+              <li>Sistem tujuan API.</li>
+              <li>Monitoring dan testing API.</li>
+            </ol>
+            <h5>Estimasi Pekerjaan:</h5>
+            <p class="edit-block">Total : 1 Hari.</p>
+
+            <h5>Analisa Oleh:</h5>
+            <p class="edit-block"><strong>KING ANGGA</strong></p>
+          </div>
+        </div>
+        <div class="note">
+          <p><strong>Note:</strong> tulisan berwarna biru harus diedit sesuai kebutuhan pada isi/deskripsi ticket.</p>
+        </div>
+
+        <h4>Belum bisa membuat evaluasi sendiri?</h4>
+        <p>Gunakan ChatGPT sebagai alat bantu dengan prompt berikut:</p>
+        <div class="prompt">
+          <div class="doc-head">Prompt ChatGPT <button class="copy" type="button" data-copy="prompt-gpt">Salin</button>
+          </div>
+          <pre
+            id="prompt-gpt">Terdapat <b>ticket Request baru</b> terkait dengan kebutuhan <em>...............(isi pemahaman kita sesuai permintaan pada ticket)</em>, dengan deskripsi sebagai berikut :
+<em>.................(isi full deskripsi ticket)</em>
+
+Berikut adalah <b>contoh evaluasi kebutuhan</b> pada ticket sebelumnya :
+<em>.................(isi full contoh evaluasi kebutuhan)</em>
+
+Buatkan evaluasi kebutuhan sesuai dengan <b>contoh evaluasi kebutuhan</b> di atas berdasarkan dengan permintaan pada <b>ticket request baru</b>.</pre>
+        </div>
+        <div class="note">
+          <p><strong>Note:</strong> kata kunci pada prompt ini ada pada <strong>ticket request baru</strong> dan
+            <strong>contoh evaluasi kebutuhan</strong>. Tujuannya memberi batasan agar hasil yang didapat tidak
+            melebar.
+          </p>
+        </div>
+
+        <h4>Setelah evaluasi selesai</h4>
+        <p>Ubah statusnya menjadi <strong>done evaluation</strong>:</p>
+        <figure>
+          <a href="./assets/img/doneEvaluation.png" target="_blank" rel="noopener">
+            <img src="./assets/img/doneEvaluation.png" alt="Mengubah status menjadi done evaluation">
+          </a>
+        </figure>
+        <p>Kemudian <strong>update request</strong>:</p>
+        <figure>
+          <a href="./assets/img/updateRequest.png" target="_blank" rel="noopener">
+            <img src="./assets/img/updateRequest.png" alt="Tombol update request">
+          </a>
+        </figure>
+      </section>
+
+      <section id="langkah-4">
+        <h2><span class="sec-no">4.</span>Kirim email ke requestor</h2>
+        <p class="lead">Jika kegiatan terkait permintaan pada ticket sudah selesai dilaksanakan, status ticket perlu di-resolved.</p>
+        <ul>
+          <li>Email user tertera pada body ticket:</li>
+        </ul>
+
+        <h4>Template email</h4>
+        <figure>
+          <a href="./assets/img/templateEmail.png" target="_blank" rel="noopener">
+            <img src="./assets/img/templateEmail.png" alt="Contoh email ke requestor">
+          </a>
+        </figure>
+
+        <div class="doc mail">
+          <div class="doc-head">Template email <button class="copy" type="button" data-copy="tpl-mail">Salin</button>
+          </div>
+          <dl>
+            <dt>Subject</dt>
+            <dd>Notification/<span class="edit">(nomor ticket)</span>/<span class="edit">(judul ticket)</span>/<span
+                class="edit">(status ticket)</span></dd>
+          </dl>
+          <div class="doc-body" id="tpl-mail">
+            <p>Dear Bapak/Ibu <span class="edit">.........(sesuaikan nama dan panggilan user)</span>,</p>
+            <p>Sehubungan dengan <span class="edit">(judul ticket)</span> dengan nomor ticket <span
+                class="edit">(nomor ticket)</span>, dapat kami informasikan bahwa pengerjaan API telah selesai
+              diproses.</p>
+            <p>Berikut kami lampirkan juga file Postman.</p>
+            <p>Terima kasih.</p>
+            <p>Best Regards,<br><span class="edit">(nama pengirim)</span></p>
+          </div>
+        </div>
+
+        <div class="note">
+          <p><strong>Notes:</strong></p>
+          <ul>
+            <li>Email dikirim ke requestor sesuai data pada ticket.</li>
+            <li>Cantumkan King Kardo pada CC.</li>
+            <li>Lampirkan file Postman/JSON sesuai yang diterima dari tim Synxchro.</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>© Copyright 2026 Local TNT</footer>
+
+  <script>
+    // Tombol salin untuk prompt dan template
+    document.querySelectorAll('.copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var el = document.getElementById(btn.dataset.copy);
+        var text = el.innerText.trim();
+        var done = function () {
+          var old = btn.textContent;
+          btn.textContent = 'Tersalin';
+          setTimeout(function () { btn.textContent = old; }, 1500);
+        };
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text).then(done);
+        } else {
+          var r = document.createRange(); r.selectNodeContents(el);
+          var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+          document.execCommand('copy'); s.removeAllRanges(); done();
+        }
+      });
+    });
+
+    // Highlight bagian navigasi saat di-scroll
+    var links = document.querySelectorAll('.toc a');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting) {
+            links.forEach(function (a) {
+              a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+            });
+          }
+        });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+      document.querySelectorAll('section[id]').forEach(function (s) { io.observe(s); });
+    }
+
+    // Pop-up (lightbox) untuk gambar
+    (function () {
+      var box = document.createElement('div');
+      box.className = 'lightbox';
+      box.setAttribute('role', 'dialog');
+      box.setAttribute('aria-modal', 'true');
+      box.setAttribute('aria-label', 'Pratinjau gambar');
+      box.hidden = true;
+      box.innerHTML =
+        '<button class="lightbox-close" type="button" aria-label="Tutup">&times;</button>' +
+        '<img class="lightbox-img" alt="">';
+      document.body.appendChild(box);
+
+      var img = box.querySelector('.lightbox-img');
+      var closeBtn = box.querySelector('.lightbox-close');
+      var lastFocus = null;
+
+      function openBox(src, alt) {
+        lastFocus = document.activeElement;
+        img.src = src;
+        img.alt = alt || '';
+        box.hidden = false;
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+
+      function closeBox() {
+        box.hidden = true;
+        img.removeAttribute('src');
+        document.body.style.overflow = '';
+        if (lastFocus) lastFocus.focus();
+      }
+
+      // Cegah buka tab baru, ganti dengan pop-up
+      document.querySelectorAll('figure a').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          var thumb = a.querySelector('img');
+          openBox(a.getAttribute('href'), thumb ? thumb.alt : '');
+        });
+      });
+
+      // Tutup: klik area gelap / tombol X, atau tekan Esc
+      box.addEventListener('click', function (e) {
+        if (e.target !== img) closeBox();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !box.hidden) closeBox();
+      });
+    })();
+  </script>
+</body>
+
+</html>

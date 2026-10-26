@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panduan Redeploy & Undeploy API | Portal Dashboard</title>
+  <!-- Menghubungkan ke file CSS yang terpisah -->
+  <link rel="stylesheet" href="redploy_undeploy.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <a class="home" href="../../index.html">← Home</a>
+    <div class="hero-grid">
+      <div>
+        <h1>Proses Undeploy & Redeploy API</h1>
+        <p>Langkah-langkah strategis manajemen sistem API untuk melakukan optimalisasi resource server (CPU, Memory, Disk) dan mematikan layanan yang tidak aktif tanpa beban berlebih.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Daftar isi">
+      <ul>
+        <li><a href="#latar-belakang">Latar Belakang</a></li>
+        <li><a href="#undeploy">Panduan Undeploy</a></li>
+        <li><a href="#redeploy">Panduan Redeploy</a></li>
+      </ul>
+    </nav>
+
+    <main class="p1">
+
+      <!-- Latar Belakang -->
+      <section id="latar-belakang">
+        <h2><span class="sec-no">1.</span>Latar Belakang</h2>
+        <p class="lead">Undeploy dan Redeploy bukan sekadar mematikan dan mengaktifkan layanan API, melainkan sebuah keputusan strategis dalam manajemen sistem untuk melakukan optimalisasi resource pada server seperti penggunaan CPU, Memory RAM, dan DISK.</p>
+        
+        <div class="note">
+          <p><strong>Kenapa harus di-undeploy?</strong> API yang sudah tidak aktif (idle) atau memiliki trafik sangat rendah akan terus membebani server tanpa memberikan nilai tambah (active endpoints yang berlebihan). Undeploy akan membebaskan resource ini agar dapat digunakan oleh layanan lain yang lebih kritikal.</p>
+        </div>
+      </section>
+
+      <!-- Panduan Undeploy -->
+      <section id="undeploy">
+        <h2><span class="sec-no">2.</span>Panduan Undeploy</h2>
+        <p class="lead">Undeploy adalah proses menarik kembali atau menghapus API/Endpoint dari lingkungan server tempat ia berjalan (seperti production atau development).</p>
+        
+        <p>Berikut adalah panduan langkah demi langkah untuk melakukan proses undeploy API atau Endpoint pada sistem:</p>
+
+        <ol class="steps">
+          <li>
+            <strong>Cari Endpoint</strong><br>
+            Masuk ke menu Service dan masukkan <em>Exposed Path</em> dari API yang ingin di-undeploy pada kolom pencarian. Kemudian, klik ikon titik tiga pada bagian paling kanan endpoint tersebut, lalu pilih <strong>Edit</strong>.
+            <figure>
+              <img src="undeploy_redeploy_doc/Service.jpg" alt="Langkah 1 Undeploy" class="img">
+            </figure>
+          </li>
+          
+          <li>
+            <strong>Submit Perubahan</strong><br>
+            Pada bagian pop-up edit (Edit Gateway), <strong style="color: var(--warn);">JANGAN UBAH APAPUN</strong> pada kolom yang tersedia, langsung saja klik tombol <strong>SUBMIT</strong>.
+            <figure>
+              <img src="undeploy_redeploy_doc/Service2.jpg" alt="Langkah 2 Undeploy" class="img">
+            </figure>
+            <div class="note">
+              <p><strong>Catatan Penting:</strong> Jika ada endpoint lain yang juga ingin di-undeploy, lakukan proses ini (Langkah 1 & 2) secara berulang untuk semua endpoint tersebut terlebih dahulu. Jangan lanjut ke langkah 3 sebelum semua endpoint selesai di-submit pada tahap ini.</p>
+            </div>
+          </li>
+
+          <li>
+            <strong>Restart Server</strong><br>
+            Setelah proses edit di-submit, status <em>Need restart</em> pada menu Server akan berubah menjadi <strong>Yes</strong>. Selanjutnya, masuk ke bagian menu Server, klik ikon titik tiga pada baris server yang sesuai, lalu pilih <strong>Restart</strong>.
+            <figure>
+              <img src="undeploy_redeploy_doc/Server.jpg" alt="Langkah 3 Undeploy" class="img">
+            </figure>
+            <p>Setelah restart berhasil dilakukan, status <em>Need restart</em> akan berubah kembali menjadi <strong>No</strong>. Pada titik ini proses undeploy telah selesai, dan jumlah Active Endpoints akan berkurang.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Panduan Redeploy -->
+      <section id="redeploy">
+        <h2><span class="sec-no">3.</span>Panduan Redeploy</h2>
+        <p class="lead">Redeploy adalah proses mengaktifkan kembali Endpoint terdaftar yang berstatus Undeploy untuk dipergunakan sesuai kebutuhan consumer.</p>
+        
+        <p>Berikut adalah panduan langkah demi langkah untuk melakukan proses Redeploy API pada sistem:</p>
+
+        <ol class="steps">
+          <li>
+            <strong>Cari Endpoint</strong><br>
+            Masuk ke menu Service dan masukkan <em>Exposed Path</em> dari API yang ingin di-Redeploy pada kolom pencarian. Kemudian, klik ikon titik tiga pada bagian paling kanan endpoint tersebut.
+            <figure>
+              <img src="undeploy_redeploy_doc/Service.jpg" alt="Langkah 1 Redeploy" class="img">
+            </figure>
+          </li>
+
+          <li>
+            <strong>Proses Deploy</strong><br>
+            Setelah klik ikon titik tiga, klik <strong>Deploy</strong> untuk menjalankan proses Redeploy.
+            <figure>
+              <img src="undeploy_redeploy_doc/deply.jpg" alt="Langkah 2 Redeploy" class="img">
+            </figure>
+          </li>
+
+          <li>
+            <strong>Verifikasi Status</strong><br>
+            Setelah proses Redeploy berhasil, status API pada kolom <em>Is Deployed</em> akan berubah menjadi <strong>Deployed</strong>.
+            <figure>
+              <img src="undeploy_redeploy_doc/Done_deploy.jpg" alt="Langkah 3 Redeploy" class="img">
+            </figure>
+          </li>
+        </ol>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>© Copyright 2026 Local TNT</footer>
+
+  <script>
+    (function () {
+      // Highlight navigasi TOC saat di-scroll
+      var links = document.querySelectorAll('.toc a');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            if (e.isIntersecting) {
+              links.forEach(function (a) {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+              });
+            }
+          });
+        }, { rootMargin: '-30% 0px -60% 0px' });
+        
+        document.querySelectorAll('section[id]').forEach(function (s) { io.observe(s); });
+      }
+    })();
+  </script>
+</body>
+
+</html>

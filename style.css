@@ -1,94 +1,145 @@
-/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+:root {
+  --green :darkgreen ;
+  --bg: #eef3f2;
+  --surface: #ffffff;
+  --ink: #12302f;
+  --muted: #55706e;
+  --line: #d3dfdd;
+  --brand: #0f6b5c;
+  --brand-dark: #0a3d37;
+  --radius: 14px;
+  --head: 'Bricolage Grotesque', 'Segoe UI', sans-serif;
+  --body: 'Figtree', 'Segoe UI', Tahoma, sans-serif;
+  --mono: 'IBM Plex Mono', Consolas, monospace;
+}
+:root { color-scheme: light; }
+
+* { box-sizing: border-box; }
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f6;
-    margin: 0;
-    padding: 0;
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 16px; line-height: 1.6;
 }
+a:focus-visible, button:focus-visible { outline: 3px solid #f5b700; outline-offset: 2px; }
 
-.home {
-    text-align: left;
-  a {
-    display: inline-block;
-    background-color: green;
-    text-decoration:unset; 
-    font-size: 18px; 
-    color: white; 
-    padding: 10px;
-    border-radius: 10px;
-    margin: 0%;}
-}
+/* ---------- Header ---------- */
 .header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 20px 10px rgba(0,0,0,0.1);
+  background: var(--brand-dark); color: #fff;
+  padding: 20px clamp(20px, 5vw, 64px) 80px;
+  position: relative; overflow: hidden;
+}
+.header-top { margin-bottom: 24px; }
+.btn-logout {
+  display: inline-block; color: #fff; text-decoration: none; font-weight: 600;
+  padding: 8px 16px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px;
+  transition: background .2s, transform .2s;
+}
+.btn-logout:hover { 
+  background: rgba(255,255,255,.14); 
+}
+.hero-grid {
+  display: grid; gap: 48px; max-width: 1100px; margin: 0 auto;
+}
+.header h1 {
+  font-family: var(--head); font-weight: 800; letter-spacing: -.02em;
+  font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.05; margin: 0 0 12px;
+}
+.header p { margin: 0; color: #c5ded9; max-width: 60ch; font-size: 1.1rem; }
+
+/* ---------- Dashboard Grid Layout ---------- */
+.dashboard-grid {
+  max-width: 1100px; 
+  margin: -40px auto 40px; /* Menarik grid ke atas agar menimpa header sedikit */
+  padding: 0 clamp(16px, 4vw, 32px); 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+  gap: 28px; 
+  position: relative;
+  z-index: 2;
 }
 
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 40px 20px;
-    gap: 30px;
-    
-}
+/* ---------- Card Styling ---------- */
 .card {
-    background: white;
-    border-radius: 8px;
-    width: 350px;
-    overflow: hidden;
-    box-shadow: 0 20px 10px rgba(0,0,0,0.1);
-
+  background: var(--surface); 
+  border: 1px solid var(--line); 
+  border-radius: var(--radius); 
+  padding: 28px; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
+/* Garis warna unik untuk tiap card */
+.card-profil { border-top: 6px solid #2f5fd0; } /* Biru */
+.card-amp { border-top: 6px solid darkgreen; }    /* Hijau Brand */
+.card-dsp { border-top: 6px solid #d9531e; }    /* Orange */
+.card-sd1 { border-top: 6px solid #55706e !important;; }
 
-.card-header {
-    background-color: green; /* Warna kuning menyesuaikan dengan gambar */
-    color: white;
-    font-weight: bold;
-    font-size: 1.2em;
-    padding: 15px 20px;
-    border-bottom: 4px solid #cccccc;
-    
+.card h2 { 
+  font-family: var(--head); 
+  font-size: 1.4rem; 
+  margin: 0 0 20px; 
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--line);
+  color: var(--ink);
 }
 
-
+/* ---------- List Menu Link ---------- */
 .list-group {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    
-
+  list-style: none; margin: 0; padding: 0;
 }
-
-.list-group li:hover {
-    transform: translateY(-4px); /* Mengangkat kartu ke atas */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Pertegas bayangan di bawahnya */
-    
-}
-
 .list-group li {
-    text-decoration: none;
-    padding: 15px 20px;
-    border-bottom: 4px solid #cccc;
-    color:black;
-    font-size:100%;
-    border-radius: 8px;
-
+  margin-bottom: 8px;
+}
+.list-group li:last-child {
+  margin-bottom: 0;
+}
+.list-group a, .list-group .inactive {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  background: var(--bg);
+  border: 1px solid transparent;
+}
+.list-group a {
+  color: var(--ink);
+}
+.list-group a:hover {
+  background: var(--surface);
+  border-color: var(--brand);
+  color: var(--brand);
+  transform: translateX(6px); /* Efek maju sedikit saat di-hover */
+  box-shadow: 0 4px 12px rgba(15, 107, 92, 0.1);
 }
 
+/* Styling untuk menu yang belum ada link-nya */
+.list-group .inactive {
+  color: var(--muted);
+  cursor: not-allowed;
+  background: transparent;
+  border-color: var(--line);
+  border-style: dashed;
+}
 
-a {text-decoration: none;
-   color:black;
-   }
+/* ---------- Footer ---------- */
+footer { 
+  text-align: center; 
+  padding: 32px 16px; 
+  color: var(--muted); 
+  font-size: 0.95rem; 
+  border-top: 1px solid var(--line); 
+  background: var(--surface);
+}
 
-.footer {
-    text-align: center;
-    padding: 20px;
-    color: #888;
-    font-size: 0.9em;
-    margin-top: 20px;
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .dashboard-grid { grid-template-columns: 1fr; margin-top: 24px; }
+  .header { padding: 32px 24px 48px; }
 }

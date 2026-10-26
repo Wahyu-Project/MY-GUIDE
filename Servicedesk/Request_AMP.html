@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flow Ticket Servicedesk | Portal Dashboard</title>
+  <link rel="stylesheet" href="Request_AMP.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <a class="home" href="../../index.php">← Home</a>
+    <div class="hero-grid">
+      <h1>Flow Handling Request Ticket Servicedesk</h1>
+      <p>Panduan untuk rekan helpdesk dalam menangani request ticket: dari mengenali ticket baru, membuat evaluasi,
+        berkoordinasi dengan tim teknis, hingga menutup ticket dan memberi kabar ke requestor.</p>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Daftar isi">
+      <ul>
+        <li><a href="#langkah-1">Ticket diterima</a></li>
+        <li><a href="#langkah-2">Konfirmasi user</a></li>
+        <li><a href="#langkah-3">Buat evaluasi</a></li>
+        <li><a href="#langkah-4">Approval</a></li>
+        <li><a href="#langkah-5">Technical confirmation</a></li>
+        <li><a href="#langkah-6">Resolved ticket</a></li>
+        <li><a href="#langkah-7">Kirim email requestor</a></li>
+        
+      </ul>
+    </nav>
+
+    <main class="p1">
+
+      <section id="langkah-1">
+        <h2><span class="sec-no">1.</span>Ticket diterima</h2>
+        <figure>
+          <a href="./assets/img/ticketDiterima.jpeg" target="_blank" rel="noopener">
+            <img src="./assets/img/ticketDiterima.jpeg" alt="Daftar pending request di Servicedesk">
+          </a>
+        </figure>
+        <ul>
+          <li>Untuk mengetahui ada ticket baru, lihat pada <strong>pending request</strong>.</li>
+        </ul>
+      </section>
+
+      <section id="langkah-2">
+        <h2><span class="sec-no">2.</span>Cek deskripsi ticket &amp; konfirmasi user</h2>
+        <figure>
+          <a href="./assets/img/cekDeskripsiTicket.png" target="_blank" rel="noopener">
+            <img src="./assets/img/cekDeskripsiTicket.png" alt="Detail deskripsi ticket">
+          </a>
+        </figure>
+        <ul>
+          <li>Cek deskripsi ticket untuk memastikan permintaan terkait dengan project apa. Pastikan setiap rekan
+            helpdesk mengerti maksud dan tujuan ticket tersebut.</li>
+          <li>Setelah memahami maksud ticket, konfirmasi dengan User (PIC) yang bertanggung jawab untuk memastikan user
+            mengetahui ticket tersebut. <span class="only">Khusus ticket API-AMP</span></li>
+          <li>Jika user sudah mengetahui, tanyakan apakah evaluasi kebutuhan bisa dibuat secara langsung.
+            <ul>
+              <li>Jika tidak bisa, tunggu konfirmasi dari User terlebih dahulu.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section id="langkah-3">
+        <h2><span class="sec-no">3.</span>Buat evaluasi</h2>
+        <figure>
+          <a href="./assets/img/buatEvaluasi.png" target="_blank" rel="noopener">
+            <img src="./assets/img/buatEvaluasi.png" alt="Body ticket tempat evaluasi diisi">
+          </a>
+        </figure>
+
+        <p class="lead">Evaluasi kebutuhan diisi pada body ticket (di dalam deskripsi ticket). Biasanya sudah ada format
+          dengan poin yang perlu diisi:</p>
+        <ol class="fields" type="a">
+          <li><b>a</b>Evaluasi Kebutuhan</li>
+          <li><b>b</b>Risk Management</li>
+          <li><b>c</b>Analisa Manfaat</li>
+          <li><b>d</b>Kebutuhan Resource</li>
+          <li><b>e</b>Estimasi Pekerjaan</li>
+          <li><b>f</b>Analisa Oleh</li>
+        </ol>
+
+        <h4>Cara mengisi evaluasi</h4>
+        <p>Buka menu <strong>Edit</strong> pada ticket:</p>
+        <p>Kemudian isi evaluasi kebutuhan sesuai format yang diminta:</p>
+        <figure>
+          <a href="./assets/img/formEvaluasiKebutuhan.png" target="_blank" rel="noopener">
+            <img src="./assets/img/formEvaluasiKebutuhan.png" alt="Form evaluasi kebutuhan">
+          </a>
+        </figure>
+        <div class="note">
+          <p><strong>Note:</strong> jika tidak ada format seperti gambar di atas, isi sendiri berdasarkan contoh di
+            bawah ini.</p>
+        </div>
+
+        <h4>Contoh evaluasi kebutuhan</h4>
+        <div class="doc">
+          <div class="doc-head">Contoh evaluasi kebutuhan</div>
+          <div class="doc-body">
+            <h5>Evaluasi Kebutuhan:</h5>
+            <p class="edit-block">Permintaan pembuatan Service API Data DWH ditujukan untuk mendukung kelancaran
+              distribusi barang di 33 aset infrastruktur SIG serta mendukung program digitalisasi sesuai ICT Master Plan
+              dan RJPP 2024–2029. API ini akan menjadi jalur utama bagi SIGMA 2.0 untuk memperoleh data shipment yang
+              real-time, menggantikan ketergantungan pada Power BI, serta mewujudkan single source of truth untuk
+              dashboard manajemen.</p>
+            <h5>Risk Management:</h5>
+            <ol class="edit-block">
+              <li>Potensi inkonsistensi data jika mapping tidak sesuai.</li>
+              <li>Downtime atau keterlambatan respon API saat beban tinggi.</li>
+              <li>Risiko keamanan data tanpa autentikasi dan enkripsi.</li>
+            </ol>
+            <h5>Analisa Manfaat:</h5>
+            <ol class="edit-block">
+              <li>Data shipment selalu sinkron dan real-time antara DWH dan SIGMA 2.0.</li>
+              <li>Alternatif dashboard jika Power BI tidak dapat digunakan.</li>
+              <li>Mengurangi input manual dan potensi human error.</li>
+              <li>Efisiensi operasional dengan akses data terpusat.</li>
+            </ol>
+            <h5>Kebutuhan Resource:</h5>
+            <p class="edit-block">1 orang developer API/integrasi.</p>
+            <h5>Estimasi Pekerjaan:</h5>
+            <p>1 hari development,<br>1 hari pengetesan,<br>1 hari deploy production.<br>Total: 3 hari kerja.</p>
+            <h5>Analisa Oleh:</h5>
+            <p class="edit-block"><strong>KING ANGGA</strong></p>
+          </div>
+        </div>
+        <div class="note">
+          <p><strong>Note:</strong> tulisan berwarna biru harus diedit sesuai kebutuhan pada isi/deskripsi ticket.</p>
+        </div>
+
+        <h4>Belum bisa membuat evaluasi sendiri?</h4>
+        <p>Gunakan ChatGPT sebagai alat bantu dengan prompt berikut:</p>
+        <div class="prompt">
+          <div class="doc-head">Prompt ChatGPT <button class="copy" type="button" data-copy="prompt-gpt">Salin</button>
+          </div>
+          <pre
+            id="prompt-gpt">Terdapat <b>ticket Request baru</b> terkait dengan kebutuhan <em>...............(isi pemahaman kita sesuai permintaan pada ticket)</em>, dengan deskripsi sebagai berikut :
+<em>.................(isi full deskripsi ticket)</em>
+
+Berikut adalah <b>contoh evaluasi kebutuhan</b> pada ticket sebelumnya :
+<em>.................(isi full contoh evaluasi kebutuhan)</em>
+
+Buatkan evaluasi kebutuhan sesuai dengan <b>contoh evaluasi kebutuhan</b> di atas berdasarkan dengan permintaan pada <b>ticket request baru</b>.</pre>
+        </div>
+        <div class="note">
+          <p><strong>Note:</strong> kata kunci pada prompt ini ada pada <strong>ticket request baru</strong> dan
+            <strong>contoh evaluasi kebutuhan</strong>. Tujuannya memberi batasan agar hasil yang didapat tidak
+            melebar.
+          </p>
+        </div>
+
+        <h4>Setelah evaluasi selesai</h4>
+        <p>Ubah statusnya menjadi <strong>done evaluation</strong>:</p>
+        <figure>
+          <a href="./assets/img/doneEvaluation.png" target="_blank" rel="noopener">
+            <img src="./assets/img/doneEvaluation.png" alt="Mengubah status menjadi done evaluation">
+          </a>
+        </figure>
+        <p>Kemudian <strong>update request</strong>:</p>
+        <figure>
+          <a href="./assets/img/updateRequest.png" target="_blank" rel="noopener">
+            <img src="./assets/img/updateRequest.png" alt="Tombol update request">
+          </a>
+        </figure>
+      </section>
+      <section id="langkah-4">
+        <h2><span class="sec-no">4.</span>Approval</h2>
+        <p class="lead">Setelah evaluasi selesai dan status ticket berhasil dirubah menjadi done evaluation ticket akan di proses kembali oleh team ServiceDesk untuk di setting Approval atau persetujuan dari head departement terkait disisi SIG.</p>
+        <p><strong>Contoh:</strong></p>
+        <figure>
+          <a href="./assets/img/Approval.jpeg" target="_blank" rel="noopener">
+            <img src="./assets/img/Approval.jpeg" alt="Contoh pesan konfirmasi ke tim teknis">
+          </a>
+        </figure>
+        <div class="note">
+          <p><strong>Notes:</strong> lampiran ada di bawah deskripsi ticket.</p>
+        </div>
+      </section>
+
+      <section id="langkah-5">
+        <h2><span class="sec-no">5.</span>Technical confirmation</h2>
+        <p class="lead">Setelah Done Evaluation dan Full Approval, langkah selanjutnya adalah konfirmasi detailrequest ticket ke team teknis: <strong>nomor ticket, subject, dan deskripsi ticket</strong>. Jika ada lampiran pada ticket, download dan kirimkan juga ke team teknis.</p>
+        <p><strong>Contoh:</strong></p>
+        <figure>
+          <a href="./assets/img/technicalConfirm.png" target="_blank" rel="noopener">
+            <img src="./assets/img/technicalConfirm.png" alt="Contoh pesan konfirmasi ke tim teknis">
+          </a>
+        </figure>
+        <div class="note">
+          <p><strong>Notes:</strong> lampiran ada di bawah deskripsi ticket.</p>
+        </div>
+      </section>
+
+      <section id="langkah-6">
+        <h2><span class="sec-no">6.</span>Resolved ticket (isi resolusi)</h2>
+        <p class="lead">Jika kegiatan terkait permintaan pada ticket sudah selesai dilaksanakan, status ticket perlu di-resolved.</p>
+        <h4>Template ticket AMP</h4>
+        <div class="doc">
+          <div class="doc-head">Template resolution ticket AMP <button class="copy" type="button"
+              data-copy="tpl-amp">Salin</button></div>
+          <div class="doc-body" id="tpl-amp">
+            <p>Pengerjaan kebutuhan API sudah selesai diproses.</p>
+            <p><strong>Berikut URL dev:</strong></p>
+            <ul class="urls">
+              <li><span class="env dev">DEV</span><a
+                  href="https://dev-integrasi-api.sig.id/rfc/sd/z_zappsd_po_open_nw">https://dev-integrasi-api.sig.id/rfc/sd/z_zappsd_po_open_nw</a>
+              </li>
+              <li><span class="env dev">DEV</span><a
+                  href="https://dev-integrasi-api.sig.id/rfc/sd/z_zappic_get_polist_k">https://dev-integrasi-api.sig.id/rfc/sd/z_zappic_get_polist_k</a>
+              </li>
+              <li><span class="env dev">DEV</span><a
+                  href="https://dev-integrasi-api.sig.id/rfc/sd/z_zappic_sel_pose_pos">https://dev-integrasi-api.sig.id/rfc/sd/z_zappic_sel_pose_pos</a>
+              </li>
+            </ul>
+            <p><strong>Berikut URL Prod:</strong></p>
+            <ul class="urls">
+              <li><span class="env prod">PROD</span><a
+                  href="https://integrasi-api.sig.id/rfc/sd/z_zappsd_po_open_nw">https://integrasi-api.sig.id/rfc/sd/z_zappsd_po_open_nw</a>
+              </li>
+              <li><span class="env prod">PROD</span><a
+                  href="https://integrasi-api.sig.id/rfc/sd/z_zappic_get_polist_k">https://integrasi-api.sig.id/rfc/sd/z_zappic_get_polist_k</a>
+              </li>
+              <li><span class="env prod">PROD</span><a
+                  href="https://integrasi-api.sig.id/rfc/sd/z_zappic_sel_pose_pos">https://integrasi-api.sig.id/rfc/sd/z_zappic_sel_pose_pos</a>
+              </li>
+            </ul>
+            <p>Untuk dokumen link Postman akan dikirimkan via email.</p>
+          </div>
+        </div>
+        <figure>
+          <a href="./assets/img/contohResolution.png" target="_blank" rel="noopener">
+            <img src="./assets/img/contohResolution.png" alt="Contoh resolution ticket AMP">
+          </a>
+        </figure>
+        <div class="note">
+          <p><strong>Note:</strong> jumlah URL yang dicantumkan tergantung total endpoint yang dikerjakan. URL diambil
+            melalui file JSON dari tim Synxchro.</p>
+        </div>
+
+        <h4>Ubah status menjadi resolved</h4>
+        <p>Setelah resolution terisi, ubah statusnya menjadi <strong>resolved</strong>.</p>
+        <figure>
+          <a href="./assets/img/mengubahStatus.png" target="_blank" rel="noopener">
+            <img src="./assets/img/mengubahStatus.png" alt="Mengubah status ticket menjadi resolved">
+          </a>
+        </figure>
+      </section>
+
+      <section id="langkah-7">
+        <h2><span class="sec-no">7.</span>Kirim email ke requestor</h2>
+        <p class="lead"><span class="only">Khusus ticket AMP</span> Kirim file JSON yang diterima dari tim Synxchro ke
+          user.</p>
+        <ul>
+          <li>Email user tertera pada body ticket:</li>
+        </ul>
+        <figure>
+          <a href="./assets/img/emailRequestor.png" target="_blank" rel="noopener">
+            <img src="./assets/img/emailRequestor.png" alt="Email requestor pada body ticket">
+          </a>
+        </figure>
+
+        <h4>Template email</h4>
+        <figure>
+          <a href="./assets/img/templateEmail.png" target="_blank" rel="noopener">
+            <img src="./assets/img/templateEmail.png" alt="Contoh email ke requestor">
+          </a>
+        </figure>
+
+        <div class="doc mail">
+          <div class="doc-head">Template email <button class="copy" type="button" data-copy="tpl-mail">Salin</button>
+          </div>
+          <dl>
+            <dt>Subject</dt>
+            <dd>Notification/<span class="edit">(nomor ticket)</span>/<span class="edit">(judul ticket)</span>/<span
+                class="edit">(status ticket)</span></dd>
+          </dl>
+          <div class="doc-body" id="tpl-mail">
+            <p>Dear Bapak/Ibu <span class="edit">.........(sesuaikan nama dan panggilan user)</span>,</p>
+            <p>Sehubungan dengan <span class="edit">(judul ticket)</span> dengan nomor ticket <span
+                class="edit">(nomor ticket)</span>, dapat kami informasikan bahwa pengerjaan API telah selesai
+              diproses.</p>
+            <p>Berikut kami lampirkan juga file Postman.</p>
+            <p>Terima kasih.</p>
+            <p>Best Regards,<br><span class="edit">(nama pengirim)</span></p>
+          </div>
+        </div>
+
+        <div class="note">
+          <p><strong>Notes:</strong></p>
+          <ul>
+            <li>Email dikirim ke requestor sesuai data pada ticket.</li>
+            <li>Cantumkan King Kardo pada CC.</li>
+            <li>Lampirkan file Postman/JSON sesuai yang diterima dari tim Synxchro.</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>© Copyright 2026 Local TNT</footer>
+
+  <script>
+    // Tombol salin untuk prompt dan template
+    document.querySelectorAll('.copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var el = document.getElementById(btn.dataset.copy);
+        var text = el.innerText.trim();
+        var done = function () {
+          var old = btn.textContent;
+          btn.textContent = 'Tersalin';
+          setTimeout(function () { btn.textContent = old; }, 1500);
+        };
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text).then(done);
+        } else {
+          var r = document.createRange(); r.selectNodeContents(el);
+          var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+          document.execCommand('copy'); s.removeAllRanges(); done();
+        }
+      });
+    });
+
+    // Highlight bagian navigasi saat di-scroll
+    var links = document.querySelectorAll('.toc a');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting) {
+            links.forEach(function (a) {
+              a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+            });
+          }
+        });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+      document.querySelectorAll('section[id]').forEach(function (s) { io.observe(s); });
+    }
+
+    // Pop-up (lightbox) untuk gambar
+    (function () {
+      var box = document.createElement('div');
+      box.className = 'lightbox';
+      box.setAttribute('role', 'dialog');
+      box.setAttribute('aria-modal', 'true');
+      box.setAttribute('aria-label', 'Pratinjau gambar');
+      box.hidden = true;
+      box.innerHTML =
+        '<button class="lightbox-close" type="button" aria-label="Tutup">&times;</button>' +
+        '<img class="lightbox-img" alt="">';
+      document.body.appendChild(box);
+
+      var img = box.querySelector('.lightbox-img');
+      var closeBtn = box.querySelector('.lightbox-close');
+      var lastFocus = null;
+
+      function openBox(src, alt) {
+        lastFocus = document.activeElement;
+        img.src = src;
+        img.alt = alt || '';
+        box.hidden = false;
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+
+      function closeBox() {
+        box.hidden = true;
+        img.removeAttribute('src');
+        document.body.style.overflow = '';
+        if (lastFocus) lastFocus.focus();
+      }
+
+      // Cegah buka tab baru, ganti dengan pop-up
+      document.querySelectorAll('figure a').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          var thumb = a.querySelector('img');
+          openBox(a.getAttribute('href'), thumb ? thumb.alt : '');
+        });
+      });
+
+      // Tutup: klik area gelap / tombol X, atau tekan Esc
+      box.addEventListener('click', function (e) {
+        if (e.target !== img) closeBox();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !box.hidden) closeBox();
+      });
+    })();
+  </script>
+</body>
+
+</html>

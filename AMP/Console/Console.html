@@ -1,98 +1,116 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Dashboard</title>
-    <!-- Menghubungkan file CSS -->
-    <link rel="stylesheet" href="console.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Gateway | Portal Dashboard</title>
+  <link rel="stylesheet" href="console.css">
 </head>
 <body>
-    <div class="header">
-        <ul class="home">
-            <a href="../../index.html">HOME</a>
-        </ul>
-        <h1>API GATEWAY PLATFORM (CONSOLE)</h1>
-        <p>Tools API GATEWAY PLATFORM (CONSOLE) adalah bagian dari API MANAGEMENT PLATFORM yang memungkinkan developer mendokumentasikan, membuat(Production), menghapus(Dellet), merubah connection, menonaktifkan (Undeploy), mengaktifkan kembali (Redeploy), dan melakukan pencarian API/Enpoint yang tersedia.</p>
+
+<header class="header">
+  <a class="home" href="../../index.html">← Home</a>
+  <div class="hero-grid">
+    <div>
+      <h1>API Gateway Console</h1>
+      <p>Tools API GATEWAY PLATFORM (CONSOLE) adalah bagian dari API MANAGEMENT PLATFORM yang memungkinkan developer mendokumentasikan, membuat (Production), menghapus (Delete), merubah connection, menonaktifkan (Undeploy), mengaktifkan kembali (Redeploy), dan melakukan pencarian API/Endpoint yang tersedia.</p>
     </div>
-    <br>
-    <div class = "header2">
-    <h2>Flow Proses Console</h2> 
-    </div>
+  </div>
+</header>
 
-    <div class ="p1">
-    <h3>1. Informasi Akses Login</h3>
-        <p>API GATEWAY PLATFORM (CONSOLE) dapat di kses menggunakan Link dan user, password sebagai berikut:</p>
-        <ul><p>URL Production & Dev</p>
-            <li>Link Prod    : https://integrasi-admin.sig.id/</li>
-            <li>Link Dev     : https://dev-integrasi-admin.sig.id/</li>
-        </ul>
-        <h3>2. Landing Page Menu</h3>
-            <p>Ketika anda berhasil Login kedalam platform terdapat menu API GATEWAY PLATFORM (CONSOLE), sebagai berikut :</p>
-            <img src="Console.jpg" alt="image" class="img">
-           
-         <table border="1">
-    <tr>
-        <th class="Table_v2">Menu</th>
-        <th class="Table_v2">Fungsi Menu</th>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">Home</th>
-        <td>Halaman utama (dashboard) yang menampilkan ringkasan atau informasi umum dari sistem.</td>
-    </tr>
-    <tr>
-    <th class="Table_v2_1">Connection</th>
-        <td>Digunakan untuk mengelola koneksi (seperti HTTP, Database, File, Javascript, dan Mail) ke berbagai layanan, host, atau aplikasi eksternal.</td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">Filter</th>
-        <td>Data belum dilengkapi pada bagian filter</td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">Endpoint</th>
-        <td>Menu untuk mengatur titik akses (endpoint) komunikasi API atau URL yang digunakan untuk menghubungkan layanan.</td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">Version</th>
-        <td>Menu untuk memantau atau mengelola versi dari aplikasi, layanan, atau modul yang sedang berjalan.</td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">Service</th>
-        <td>Menu untuk mengelola layanan-layanan (services) utama yang aktif atau terintegrasi di dalam platform.</td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">Consumer</th>
-        <td>Menu untuk mengelola data konsumen, klien, atau pihak luar yang mengonsumsi layanan dari sistem Anda.</td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">Server</th>
-        <td>Menu untuk mengonfigurasi dan memantau server fisik atau virtual yang terhubung dengan infrastruktur.</td>
-    </tr>
-    <tr>
-        <th class="Table_v2_1">Administration</th>
-        <td>Menu pengaturan sistem tingkat lanjut untuk mengelola hak akses, pengguna (user), peran (roles), dan konfigurasi administratif lainnya.</td>
-    </tr>
-    </table>
+<div class="layout">
+  <nav class="toc" aria-label="Daftar isi">
+    <ul>
+      <li><a href="#akses">Informasi Akses</a></li>
+      <li><a href="#menu">Landing Page Menu</a></li>
+      <li><a href="#proses">Proses Pembuatan</a></li>
+    </ul>
+  </nav>
 
-        <h3>2. Proses pembuatan API/Endpoint baru </h3>
-        
-        <p>Pada Tools Console team helpdesk dapat membuat API/Endpoint baru </p>
-        <p>Langkah - langkah yang harus dilakukan bila terdapat usage mencapai atau melebihi threshold 80%, sebagai berikut :</p>
-        <ol>
-            <li>Create Connection pada menu Connection.</li>
-            <li>Create Endpoint pada menu Endpoint.</li>
-            <li>Create dan Deploy Endpoint pada menu Service.</li>
-            <li>dilakukan testing UAT sebelum di public</li>
-        </ol>
+  <main class="p1">
 
-        </div> 
+    <section id="akses">
+      <h2><span class="sec-no">1.</span>Informasi Akses Login</h2>
+      <p class="lead">API GATEWAY PLATFORM (CONSOLE) dapat diakses menggunakan link untuk environment Production maupun Development berikut:</p>
 
+      <dl class="cred">
+        <div>
+          <dt>Link Prod</dt>
+          <dd>https://integrasi-admin.sig.id/</dd>
+          <span class="btns"><button type="button" data-copy="https://integrasi-admin.sig.id/">Salin</button></span>
+        </div>
+        <div>
+          <dt>Link Dev</dt>
+          <dd>https://dev-integrasi-admin.sig.id/</dd>
+          <span class="btns"><button type="button" data-copy="https://dev-integrasi-admin.sig.id/">Salin</button></span>
+        </div>
+      </dl>
+    </section>
 
-    
+    <section id="menu">
+      <h2><span class="sec-no">2.</span>Landing Page Menu</h2>
+      <p class="lead">Ketika anda berhasil login kedalam platform terdapat menu utama API GATEWAY PLATFORM (CONSOLE) sebagai berikut:</p>
+      
+      <!-- Pastikan file gambar Console.jpg berada di folder yang sama -->
+      <img src="Console.jpg" alt="Menu Console" class="img">
+      
+      <dl class="feat">
+        <div><dt>Home</dt><dd>Halaman utama (dashboard) yang menampilkan ringkasan atau informasi umum dari sistem.</dd></div>
+        <div><dt>Connection</dt><dd>Digunakan untuk mengelola koneksi (seperti HTTP, Database, File, Javascript, dan Mail) ke berbagai layanan, host, atau aplikasi eksternal.</dd></div>
+        <div><dt>Filter</dt><dd>Data belum dilengkapi pada bagian filter.</dd></div>
+        <div><dt>Endpoint</dt><dd>Menu untuk mengatur titik akses (endpoint) komunikasi API atau URL yang digunakan untuk menghubungkan layanan.</dd></div>
+        <div><dt>Version</dt><dd>Menu untuk memantau atau mengelola versi dari aplikasi, layanan, atau modul yang sedang berjalan.</dd></div>
+        <div><dt>Service</dt><dd>Menu untuk mengelola layanan-layanan (services) utama yang aktif atau terintegrasi di dalam platform.</dd></div>
+        <div><dt>Consumer</dt><dd>Menu untuk mengelola data konsumen, klien, atau pihak luar yang mengonsumsi layanan dari sistem Anda.</dd></div>
+        <div><dt>Server</dt><dd>Menu untuk mengonfigurasi dan memantau server fisik atau virtual yang terhubung dengan infrastruktur.</dd></div>
+        <div><dt>Administration</dt><dd>Menu pengaturan sistem tingkat lanjut untuk mengelola hak akses, pengguna (user), peran (roles), dan konfigurasi administratif lainnya.</dd></div>
+      </dl>
+    </section>
 
+    <section id="proses">
+      <h2><span class="sec-no">3.</span>Proses Pembuatan API/Endpoint Baru</h2>
+      <p class="lead">Pada Tools Console, team helpdesk dapat membuat API/Endpoint baru. Langkah-langkah yang harus dilakukan adalah sebagai berikut:</p>
+      
+      <ol class="steps">
+        <li>Create Connection pada menu Connection.</li>
+        <li>Create Endpoint pada menu Endpoint.</li>
+        <li>Create dan Deploy Endpoint pada menu Service.</li>
+        <li>Melakukan testing UAT sebelum dirilis ke publik.</li>
+      </ol>
+    </section>
+
+  </main>
+</div>
+
+<footer>© Copyright 2026 Local TNT</footer>
+
+<script>
+(function () {
+  // Fitur copy ke clipboard
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.onclick = function () {
+      var t = b.textContent;
+      navigator.clipboard.writeText(b.dataset.copy).then(function () {
+        b.textContent = 'Tersalin'; 
+        setTimeout(function () { b.textContent = t; }, 1500);
+      });
+    };
+  });
+
+  // Highlight bagian navigasi saat di-scroll
+  var links = document.querySelectorAll('.toc a');
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) {
+        links.forEach(function (a) {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
   
-
-    <footer>© Copyright : 2026 Local TNT</footer>
-   
+  document.querySelectorAll('section[id]').forEach(function (s) { io.observe(s); });
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flow Ticket Servicedesk | Portal Dashboard</title>
+  <link rel="stylesheet" href="Request_AMP.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <a class="home" href="../../index.php">← Home</a>
+    <div class="hero-grid">
+      <h1>Ticket Incident DSP</h1>
+      <p>Panduan untuk rekan helpdesk dalam menangani ticket incident: dari mengenali ticket masuk hingga ticket Resolve</p>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="Daftar isi">
+      <ul>
+        <li><a href="#langkah-1">Ticket diterima</a></li>
+        <li><a href="#langkah-2">Konfirmasi user</a></li>
+        <li><a href="#langkah-3">Technical confirmation</a></li>
+        <li><a href="#langkah-4">Resolved ticket</a></li>
+        <li><a href="#langkah-5">Kirim email ke requestor</a></li>
+      </ul>
+    </nav>
+
+    <main class="p1">
+
+      <section id="langkah-1">
+        <h2><span class="sec-no">1.</span>Ticket diterima</h2>
+        <figure>
+          <a href="./assets/img/ticketDiterima.jpeg" target="_blank" rel="noopener">
+            <img src="./assets/img/ticketDiterima.jpeg" alt="Daftar pending request di Servicedesk">
+          </a>
+        </figure>
+        <ul>
+          <li>Untuk mengetahui ada ticket baru, lihat pada <strong>pending request</strong>.</li>
+        </ul>
+      </section>
+
+      <section id="langkah-2">
+        <h2><span class="sec-no">2.</span>Cek deskripsi ticket &amp; konfirmasi user</h2>
+        <figure>
+          <a href="./assets/img/Incident.png" target="_blank" rel="noopener">
+            <img src="./assets/img/Incident.png" alt="Detail deskripsi ticket">
+          </a>
+        </figure>
+        <ul>
+          <li>Cek deskripsi ticket untuk memastikan permintaan terkait dengan project apa. Pastikan setiap rekan
+            helpdesk mengerti maksud dan tujuan ticket tersebut.</li>
+          <li>Setelah memahami maksud ticket, konfirmasi dengan User (PIC) yang bertanggung jawab untuk memastikan detail kendala yang di alami juga menginformasikan kendala tersebut sedang dalam pengecekan lebih lanjut.
+         
+      </section>
+
+      <section id="langkah-3">
+        <h2><span class="sec-no">3.</span>Technical confirmation</h2>
+        <p class="lead">langkah selanjutnya adalah eskalasi kendala atau incident tersebut ke team teknis dengan menginformasikan: <strong>nomor ticket, subject, dan deskripsi ticket</strong>. Jika ada lampiran pada ticket, download dan kirimkan juga ke team teknis.</p> 
+        <div class="note">
+          <p><strong>Notes:</strong> lampiran ada di bawah deskripsi ticket.</p>
+        </div>
+      </section>
+
+      <section id="langkah-4">
+        <h2><span class="sec-no">4.</span>Resolved ticket (isi resolusi)</h2>
+        <p class="lead">Jika inciden/kendala sudah selesai dilakukan troubleshooting, status ticket perlu di-resolved segera untuk menghindari over SLA.</p>
+        <h4>Template resolution ticket Incident</h4>
+        <div class="doc">
+          <div class="doc-body" id="tpl-amp">
+            <p><strong>Analisa Permasalahan:</strong></p>
+           <p>Server DSP 2 (10.71.4.142) mengalami hang akibat penggunaan resource yang tinggi, yaitu memory dan CPU. Kondisi tersebut disebabkan oleh adanya user filzahanti_nuha yang melakukan query pada datamart.mv_ats_laporan_hasil_survey_final melalui menu Network dengan jumlah data sebanyak 4.934.570 record tanpa menggunakan LIMIT, sehingga menyebabkan penggunaan memory DSP habis dan berdampak pada performa serta stabilitas server.</p>
+            <p><strong>Solusi Permasalahan:</strong></p>
+            <p>Dilakukan penanganan dengan melakukan reboot pada server DSP 2. Setelah server kembali menyala (up), seluruh service aplikasi di dalamnya langsung aktif secara otomatis beberapa saat kemudian. Setelah sistem kembali stabil, dilakukan pengecekan resource server untuk memastikan kondisi normal serta memastikan tidak ada lagi proses query dengan pengambilan data dalam jumlah besar tanpa pembatasan. Sebagai langkah optimalisasi, penggunaan query pada DSP periu dibatasi menggunakan klausa LIMIT. Untuk kebutuhan eksplorasi data dalam jumlah besar, disarankan menggunakan database client seperti DBeaver, Navicat, atau tools database</p>
+          </div>
+        </div>
+        <figure>
+          <a href="./assets/img/Incident_resolution.png.jpeg"  target="_blank" rel="noopener">
+            <img src="./assets/img/Incident_resolution.png.jpeg"  alt="Contoh resolution ticket AMP">
+          </a>
+        </figure>
+        <div class="note">
+          <p><strong>Note:</strong> Upload RFO pada Resolution ServiceDesk.</p>
+        </div>
+
+        <h4>Ubah status menjadi resolved</h4>
+        <p>Setelah resolution terisi, ubah statusnya menjadi <strong>resolved</strong>.</p>
+        <figure>
+          <a href="./assets/img/mengubahStatus.png" target="_blank" rel="noopener">
+            <img src="./assets/img/mengubahStatus.png" alt="Mengubah status ticket menjadi resolved">
+          </a>
+        </figure>
+      </section>
+
+      <section id="langkah-5">
+        <h2><span class="sec-no">5.</span>Kirim email ke User</h2>
+        <p class="lead"> Reply email user/PIC dan informasikan terkait incident yang sebelumnya terjadi telah berhasil di tangani.</p>
+        <ul>
+    
+        <h4>Contoh email</h4>
+        <figure>
+          <a href="./assets/img/Email_RFO.jpg" target="_blank" rel="noopener">
+            <img src="./assets/img/Email_RFO.jpg" alt="Contoh email ke requestor">
+          </a>
+        </figure>
+
+        <div class="doc mail">
+          <div class="doc-head">Template email <button class="copy" type="button" data-copy="tpl-mail">Salin</button>
+          </div>
+          <dl>
+            <dt>Subject</dt>
+            <dd>Operational Report - incident (tgl) (bulan) 2026</dd>
+          </dl>
+          <div class="doc-body" id="tpl-mail">
+            <p><strong>Hormat Pak Anon, Pak Roby & Team SIG,</strong></p>
+            <p>Selamat Pagi</p>
+            <p>Menindaklanjuti kendala yang terjadi pada tanggal (...) yang dimana kendala tersebut statusnya sudah selesai di tanggani. Berikut kami lampirkan  Operational Report menggenai detail atas kendala yang telah terjadi sebelumnya.</p>
+            <p>Demikian informasi yang dapat kami sampaikan.</p>
+            <p>Terima Kasih</p>
+
+          </div>
+        </div>
+
+        <div class="note">
+          <p><strong>Notes:</strong></p>
+          <ul>
+            <li>Email dikirim ke User sesuai data pada ticket.</li>
+            <li>To :<p>anon.sulistyo@sig.id</p>
+                    <p>roby.azmi@sig.id</p>
+            </li>
+            <li>Cc :<p>arby.bahariawan@tirtanawasena.com</p>
+                    <p>muhammad.fachrurrozy@sig.id</p>
+                    <p>muh.fattah.smi@sig.id</p>
+                    <p>alya.irza.smi@sig.id </p>
+                    <p>tirtanawasenateknologi@gmail.com</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>© Copyright 2026 Local TNT</footer>
+
+  <script>
+    // Tombol salin untuk prompt dan template
+    document.querySelectorAll('.copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var el = document.getElementById(btn.dataset.copy);
+        var text = el.innerText.trim();
+        var done = function () {
+          var old = btn.textContent;
+          btn.textContent = 'Tersalin';
+          setTimeout(function () { btn.textContent = old; }, 1500);
+        };
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text).then(done);
+        } else {
+          var r = document.createRange(); r.selectNodeContents(el);
+          var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+          document.execCommand('copy'); s.removeAllRanges(); done();
+        }
+      });
+    });
+
+    // Highlight bagian navigasi saat di-scroll
+    var links = document.querySelectorAll('.toc a');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting) {
+            links.forEach(function (a) {
+              a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+            });
+          }
+        });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+      document.querySelectorAll('section[id]').forEach(function (s) { io.observe(s); });
+    }
+
+    // Pop-up (lightbox) untuk gambar
+    (function () {
+      var box = document.createElement('div');
+      box.className = 'lightbox';
+      box.setAttribute('role', 'dialog');
+      box.setAttribute('aria-modal', 'true');
+      box.setAttribute('aria-label', 'Pratinjau gambar');
+      box.hidden = true;
+      box.innerHTML =
+        '<button class="lightbox-close" type="button" aria-label="Tutup">&times;</button>' +
+        '<img class="lightbox-img" alt="">';
+      document.body.appendChild(box);
+
+      var img = box.querySelector('.lightbox-img');
+      var closeBtn = box.querySelector('.lightbox-close');
+      var lastFocus = null;
+
+      function openBox(src, alt) {
+        lastFocus = document.activeElement;
+        img.src = src;
+        img.alt = alt || '';
+        box.hidden = false;
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+
+      function closeBox() {
+        box.hidden = true;
+        img.removeAttribute('src');
+        document.body.style.overflow = '';
+        if (lastFocus) lastFocus.focus();
+      }
+
+      // Cegah buka tab baru, ganti dengan pop-up
+      document.querySelectorAll('figure a').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          var thumb = a.querySelector('img');
+          openBox(a.getAttribute('href'), thumb ? thumb.alt : '');
+        });
+      });
+
+      // Tutup: klik area gelap / tombol X, atau tekan Esc
+      box.addEventListener('click', function (e) {
+        if (e.target !== img) closeBox();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !box.hidden) closeBox();
+      });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Service DSP | Portal Dashboard</title>
+  <!-- Menghubungkan ke file CSS yang terpisah -->
+  <link rel="stylesheet" href="sevice.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <a class="home" href="../../index.html">← Home</a>
+    <div class="hero-grid">
+      <div>
+        <h1>Cara Start Service DSP Jika Down</h1>
+        <p>Panduan teknis langkah demi langkah untuk tim helpdesk dalam melakukan pengecekan dan menghidupkan kembali (start) service master Linux apabila server DSP mengalami downtime.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- Daftar Isi (Table of Contents) -->
+    <nav class="toc" aria-label="Daftar isi">
+      <ul>
+        <li><a href="#langkah-1">1. Masuk Server DSP</a></li>
+        <li><a href="#langkah-2">2. Cek Akses & Uptime</a></li>
+        <li><a href="#langkah-3">3. Cek Status Master</a></li>
+        <li><a href="#langkah-4">4. Masuk Direktori Master</a></li>
+        <li><a href="#langkah-5">5. Start Service</a></li>
+        <li><a href="#langkah-6">6. Verifikasi Status</a></li>
+      </ul>
+    </nav>
+
+    <main class="p1">
+
+      <section id="langkah-1">
+        <h2><span class="sec-no">1.</span>Masuk ke Server DSP</h2>
+        <p class="lead">Langkah pertama adalah melakukan akses login melalui PAM (CyberArk) ke dalam server DSP yang dilaporkan sedang mengalami <em>down</em>.</p>
+        <div class="note">
+          <p><strong>Note:</strong> Pastikan Anda menggunakan akun credentials CyberArk/PAM yang valid untuk mengakses IP Server DSP terkait.</p>
+        </div>
+      </section>
+
+      <section id="langkah-2">
+        <h2><span class="sec-no">2.</span>Login Root & Cek Uptime</h2>
+        <p>Setelah berhasil masuk ke server, naikkan hak akses (privilege) Anda menjadi <strong>user root</strong> dan lakukan pengecekan <em>uptime</em> server menggunakan perintah berikut:</p>
+        
+        <div class="prompt">
+          <div class="doc-head">Command Terminal <button class="copy" type="button" data-copy="cmd-uptime">Salin</button></div>
+          <pre id="cmd-uptime">sudo su
+uptime</pre>
+        </div>
+        
+        <figure>
+          <img src="uptime.png" alt="Pengecekan akses root dan uptime" class="img">
+        </figure>
+      </section>
+
+      <section id="langkah-3">
+        <h2><span class="sec-no">3.</span>Cek Status Master</h2>
+        <p>Lakukan pengecekan terhadap proses <strong>MASTER</strong> untuk memastikan apakah service tersebut benar-benar dalam keadaan <em>down</em> atau mati.</p>
+        
+        <div class="prompt">
+          <div class="doc-head">Command Terminal <button class="copy" type="button" data-copy="cmd-ps">Salin</button></div>
+          <pre id="cmd-ps">ps -ef | grep MASTER</pre>
+        </div>
+
+        <figure>
+          <img src="status_master.png" alt="Hasil pengecekan status master" class="img">
+        </figure>
+        
+        <div class="note" style="border-left-color: var(--warn); background: #fff3ea;">
+          <p><strong>Indikator:</strong> Jika hasil atau tampilan dari command di atas hanya menampilkan <code>grep --color=auto MASTER</code> (tanpa ada <em>service java</em> yang berjalan), itu tandanya service MASTER <strong>memang sedang DOWN</strong>.</p>
+        </div>
+      </section>
+
+      <section id="langkah-4">
+        <h2><span class="sec-no">4.</span>Masuk ke Direktori Master Linux</h2>
+        <p>Sebelum menghidupkan kembali service, Anda harus masuk ke dalam folder/direktori tempat file eksekusi master linux disimpan.</p>
+        
+        <div class="prompt">
+          <div class="doc-head">Command Terminal <button class="copy" type="button" data-copy="cmd-cd">Salin</button></div>
+          <pre id="cmd-cd">cd /home/cloud-user/home/ec2-user/master-linux-x64
+cd master-linux-x64/</pre>
+        </div>
+
+        <figure>
+          <img src="direktori1.png" alt="Pengecekan direktori" class="img">
+        </figure>
+        <figure>
+          <img src="direktori2.png" alt="Masuk ke direktori master linux" class="img">
+        </figure>
+      </section>
+
+      <section id="langkah-5">
+        <h2><span class="sec-no">5.</span>Menyalakan (Start) Service</h2>
+        <p>Setelah Anda berada di dalam direktori <code>master-linux-x64/</code>, jalankan file <strong>start.sh</strong> untuk menghidupkan kembali service MASTER.</p>
+        
+        <div class="prompt">
+          <div class="doc-head">Command Terminal <button class="copy" type="button" data-copy="cmd-start">Salin</button></div>
+          <pre id="cmd-start">sh start.sh</pre>
+        </div>
+
+        <figure>
+          <img src="statusup.png" alt="Menjalankan script start.sh" class="img">
+        </figure>
+      </section>
+
+      <section id="langkah-6">
+        <h2><span class="sec-no">6.</span>Verifikasi Service</h2>
+        <p>Terakhir, pastikan service berhasil dijalankan dengan mengulangi perintah pengecekan MASTER sebelumnya.</p>
+        
+        <div class="prompt">
+          <div class="doc-head">Command Terminal <button class="copy" type="button" data-copy="cmd-ps2">Salin</button></div>
+          <pre id="cmd-ps2">ps -ef | grep MASTER</pre>
+        </div>
+
+        <figure>
+          <img src="statusup.png" alt="Verifikasi service sudah menyala" class="img">
+        </figure>
+
+        <div class="note" style="border-left-color: #1f8a4c; background: #e8f5e9;">
+          <p><strong>Indikator:</strong> Jika tampil <em>baris panjang</em> yang memuat parameter seperti <code>jdk/bin/java -XX:+HeapDumpOnOutOfMemoryError ... -Dprogram.name=MASTER</code>, itu menandakan service DSP <strong>sudah menyala dan berjalan normal</strong>.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>© Copyright 2026 Local TNT</footer>
+
+  <script>
+    (function () {
+      // Fitur Salin Teks Command/Prompt
+      document.querySelectorAll('.copy').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var el = document.getElementById(btn.dataset.copy);
+          var text = el.innerText.trim();
+          var done = function () {
+            var old = btn.textContent;
+            btn.textContent = 'Tersalin';
+            setTimeout(function () { btn.textContent = old; }, 1500);
+          };
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(done);
+          } else {
+            var r = document.createRange(); r.selectNodeContents(el);
+            var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+            document.execCommand('copy'); s.removeAllRanges(); done();
+          }
+        });
+      });
+
+      // Highlight navigasi TOC saat halaman di-scroll
+      var links = document.querySelectorAll('.toc a');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            if (e.isIntersecting) {
+              links.forEach(function (a) {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+              });
+            }
+          });
+        }, { rootMargin: '-30% 0px -60% 0px' });
+        
+        document.querySelectorAll('section[id]').forEach(function (s) { io.observe(s); });
+      }
+    })();
+  </script>
+</body>
+
+</html>

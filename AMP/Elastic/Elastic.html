@@ -1,96 +1,159 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Dashboard</title>
-    <!-- Menghubungkan file CSS -->
-    <link rel="stylesheet" href="Elastic.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elasticsearch Kibana | Portal Dashboard</title>
+  <link rel="stylesheet" href="Elastic.css">
 </head>
+
 <body>
-    
-    <div class="header">
-        <ul class="home">
-            <a href="../../index.html">HOME</a>
-        </ul>
+
+  <header class="header">
+    <a class="home" href="../../index.html">← Home</a>
+    <div class="hero-grid">
+      <div>
         <h1>Elasticsearch - Kibana</h1>
-        <p>Tools Elasticsearch adalah search engine & analytics library yang bertugas mengumpulkan, mengindeks, serta menyimpan data log server AMP secara real-time dan terpusat lalu divisualisasikan melalui Kibana untuk merubah data dalam bentuk grafik dan diagram dalam satu Dashboard sehingga team helpdesk dapat melakukan pengecekan log Endpoint Erorr dengan cepat untuk kebutuhan troubleshooting.</p>
+        <p>Tools Elasticsearch adalah search engine & analytics library yang bertugas mengumpulkan, mengindeks, serta menyimpan data log server AMP secara real-time dan terpusat lalu divisualisasikan melalui Kibana untuk merubah data dalam bentuk grafik dan diagram.</p>
+      </div>
     </div>
-    <br>
-    <div class = "header2">
-    <h2>Flow Proses Monitoring</h2>
-    </div>
-    
-    
-  <section class ="p1">
-    <h3>1. Elasticsearch - Kibana Dashboard</h3>
-        <p>Halaman Dashboard Elasticsearch - Kibana merupakan pusat pemantauan traffic API dan performa sistem secara real-time, yang menyajikan ringkasan metrik utama seperti total request, statistik status transaksi (Success, Failed, Exception), distribusi beban server core, serta tren lonjakan transaksi per menit dll. Dilengkapi dengan filter global yang fleksibel dan tabel log detail yang memuat data request/response body, execution time, hingga Response Code.</p>
+  </header>
 
-         <p>Untuk mengakses Elasticsearch - Kibana bisa menggunakan Link dan user akun sebagai berikut :</p>
-        <ul>
-        <li>URL         : https://integrasi-admin.sig.id/kibana/login</li>
+  <div class="layout">
+    <nav class="toc" aria-label="Daftar isi">
+      <ul>
+        <li><a href="#dashboard">Kibana Dashboard</a></li>
+        <li><a href="#status">Monitoring Status Code</a></li>
+        <li><a href="#penarikan">Flow Penarikan Data</a></li>
+      </ul>
+    </nav>
 
-        </ul>
+    <main class="p1">
 
-    
-    <iframe class="docs" src = "https://integrasi-admin.sig.id/kibana/app/dashboards#/view"></iframe>
-    
-    
-        <p> Fokus Monitoring pada tools Elastic - Kibana yaitu untuk melihat berapa jumlah total Request Endpoint yang masuk kategori <strong> Success, Exception</strong> dan <strong> Failed</strong> pada retensi 60 hari kebelakang untuk data log yang lebih dari 60 hari akan dilakukan housekeeping, dari data endpoint yang memilki log pada tools Elastic - Kibana tersebut bisa dijadikan acuan atau rekomendasi untuk kebutuhan pengecekan dan troubleshooting, berikut ini adalah penjelasan detail terkait Total Request Success, Exception dan Failed. </p>
-    
-        <table border="1" class="Table">
-      <tr>
-        <th class="Table_Succsess">Success (Res Code 200)</th>
-        <th class="Table_Failed">Failed (Res Code 400)</th>
-        <th class="Table_Exception">Exception (Res Code 500)</th>
+      <section id="dashboard">
+        <h2><span class="sec-no">1.</span>Elasticsearch - Kibana Dashboard</h2>
+        <p class="lead">Halaman Dashboard Elasticsearch - Kibana merupakan pusat pemantauan traffic API dan performa sistem secara real-time, menyajikan ringkasan metrik utama seperti total request, statistik status transaksi, distribusi beban server core, serta tren lonjakan transaksi.</p>
         
-      </tr>
-      <tr>
+        <dl class="cred">
+          <div>
+            <dt>URL Kibana</dt>
+            <dd>https://integrasi-admin.sig.id/kibana/login</dd>
+            <span class="btns"><button type="button" data-copy="https://integrasi-admin.sig.id/kibana/login">Salin</button></span>
+          </div>
+        </dl>
+
+        <div>
+          <!-- Menggunakan loading="lazy" agar halaman tidak berat saat dimuat -->
+          <img src="Elastic Dashboar.jpg" alt="Kibana Dashboard"></img>
+        </div>
+
+        <p>Fokus monitoring pada tools Elastic - Kibana yaitu untuk melihat berapa jumlah total Request Endpoint yang masuk kategori <strong>Success, Exception</strong> dan <strong>Failed</strong> pada retensi 60 hari kebelakang. Data log yang lebih dari 60 hari akan dilakukan housekeeping.</p>
+      </section>
+
+      <section id="status">
+        <h2><span class="sec-no">2.</span>Monitoring Status Code</h2>
+        <p class="lead">Dari data endpoint yang memiliki log pada tools Elastic - Kibana tersebut bisa dijadikan acuan atau rekomendasi untuk kebutuhan pengecekan dan troubleshooting.</p>
+
+        <div class="status-grid">
+          <div class="status-card s-success">
+            <h3>Success <span>(Res Code 200)</span></h3>
+            <div class="status-body">
+              <p><strong>Analisis Data:</strong> Request Success dengan Res Code 200 menandakan Request dari client berhasil diterima, diproses, dan dikembalikan oleh sistem tanpa ada kendala.</p>
+              <p><strong>Action:</strong> Tidak ada Action yang perlu dilakukan, jika user masih mengeluhkan kendala, konfirmasikan bahwa sistem berhasil merespons request. Arahkan pengecekan ke sisi eksternal (koneksi internet user, atau tampilan frontend/UI user).</p>
+            </div>
+          </div>
+
+          <div class="status-card s-failed">
+            <h3>Failed <span>(Res Code 400)</span></h3>
+            <div class="status-body">
+              <p><strong>Analisis Data:</strong> Request gagal diproses yang umumnya disebabkan oleh kesalahan di sisi Client dikarenakan beberapa kondisi seperti format request salah, autentikasi gagal (token invalid), atau endpoint tidak ditemukan.</p>
+              <p><strong>Action:</strong> Jika terdapat request Failed dalam jumlah masif, tim Helpdesk wajib melakukan penarikan data log. Periksa kolom request body dan response body. Hasil analisis dilaporkan kepada PIC SIG (Pak Kardo) untuk dikoordinasikan ke pihak user dan informasikan ke tim Synxchro untuk pengecekan service AMP.</p>
+            </div>
+          </div>
+
+          <div class="status-card s-exception">
+            <h3>Exception <span>(Res Code 500)</span></h3>
+            <div class="status-body">
+              <p><strong>Analisis Data:</strong> Request gagal karena terjadinya malfungsi pada sistem internal (Server-side error) yang dapat disebabkan karena database connection loss, timeout ke layanan pihak ketiga, atau bug aplikasi.</p>
+              <p><strong>Action:</strong> Jika terdapat Exception masif, segera tarik data daftar endpoint dan cek detail error pada kolom request/response body. Informasi diserahkan kepada PIC SIG (Pak Kardo) dan diinformasikan juga ke tim Synxchro untuk segera ditindaklanjuti.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="note">
+          <p><strong>Note:</strong> Untuk detail error Failed dan Exception dapat dilihat di kolom <em>Request</em> dan <em>Response</em> pada menu detail request Elasticsearch - Kibana.</p>
+        </div>
+      </section>
+
+      <section id="penarikan">
+        <h2><span class="sec-no">3.</span>Flow Penarikan Data Log Endpoint</h2>
+        <p class="lead">Sehubungan dengan kebutuhan data report weekly dan report monthly, team helpdesk dapat melakukan penarikan (ekspor) data log endpoint berdasarkan periode report.</p>
         
-        <td><strong>Analisis Data :</strong> Request Success dengan Res Code 200 menandakan Request dari client berhasil diterima, diproses, dan dikembalikan oleh sistem tanpa ada kendala.</td>
-        <td><strong>Analisis Data :</strong> Request gagal diproses yang umumnya disebabkan oleh kesalahan di sisi Client dikarenakan beberapa kondisi seperti format request salah, autentikasi gagal (token invalid), atau endpoint tidak ditemukan.</td>
-        <td><strong>Analisis Data :</strong> Request gagal karena terjadinya malfungsi pada sistem internal (Server-side error) yang dapat disebabkan karena database connection loss, timeout ke layanan pihak ketiga, atau bug aplikasi.</td>                                             
-      </tr> 
-       <tr>
-        <td><strong>Action :</strong> Tidak ada Action yang perlu dilakukan, jika user masih mengeluhkan kendala, konfirmasikan bahwa sistem berhasil merespons request arahkan pengecekan ke sisi eksternal (koneksi internet user, atau tampilan frontend/UI user).</td>
-        <td><strong>Action :</strong> Jika terdapat request Failed dalam jumlah masif, tim Helpdesk wajib melakukan penarikan data dengan mengekspor atau menyalin daftar endpoint pada log detail. Selanjutnya, periksa kolom request body dan response body untuk menganalisis parameter yang dikirimkan oleh user. Hasil analisis tersebut kemudian dilaporkan kepada PIC SIG (Pak Kardo) untuk dikoordinasikan langsung ke pihak user dan informasikan juga ke team synxchro untuk dilakukan pengecekan dari sisi service AMP.</td> 
-        <td><strong>Action :</strong> Jika terdapat request Exception dalam jumlah masif, tim Helpdesk harus segera menarik data daftar endpoint pada log detail dan mengecek detail error pada kolom request body serta response body. Informasi error yang ditemukan lalu diserahkan kepada PIC SIG (Pak Kardo) agar dapat segera ditindaklanjuti oleh tim terkait dan informasikan juga ke team synxchro untuk dilakukan pengecekan dari sisi service AMP.</td>   
-      </tr>
-    </table>    
-     <p><i>Note : untuk detail erorr Failed dan Exception dapat dilihat di kolom Request dan response pada menu detail request Elasticsearch - Kibana.</i></p>
-    <br>
-    <h3>2. Flow Penarikan Data Log Endpoint</h3>
-    <p>Sehubungan dengan kebutuhan data report weekly dan report monthly team helpdesk dapat melakukan penarikan, mengekspor atau menyalin data log endpoint pada tools Elastic - Kibana berdasarkan periode report, berikut ini adalah langkah - langkah proses penarikan log endpoint terdaftar, log endpoint Exception dan endpoint Failed berdasarkan periode report weekly dan report monthly.</p>
-    
-    <table border="1" class="Table">
-      <tr>  
-        <th colspan="2" class="Table2">Flow Penarikan data log Endpoint</th>
-      </tr>
-       <tr>
-        <th class="Table2">Cara Penarikan data Log Endpoint Active dan Hight Avarage duration</th>
-        <th class="Table2">Cara Penarikan data Log  Failed & Exception</th>
-      </tr>
-      <tr>
-        <td><ol>
-  <li>Modify Waktu sesuai dengan periode yang di inginkan</li>
-  <li>Klik Option titik 3 pada bagian Total By Endpoint lalu pilih more dan maximize</li>
-  <li>Setelah data log muncul team helpdesk dapat melihat informasi execution_time_ms dan response_body_length pada masing - masing endpoint</li>
-  <li>Team helpdesk dapat mendownload/export data pada menu Option titik 3.</li>
-</ol></td> 
-        <td><ol>
-  <li>Buat Filter request berdasarkan Log request Failed & Exception</li>
-  <li>Modify Waktu sesuai dengan periode yang di inginkan</li>
-  <li>Klik Option titik 3 pada bagian Detail Request lalu pilih more dan maximize</li>
-  <li>Setelah data log team helpdesk dapat melihat informasi log error secara detail pada masing - masing endpoint</li>
-  <li>Team helpdesk dapat mendownload/export data pada menu Option titik 3.</li>
-</ol></td>                                             
-      </tr>
-      
-    </table>
-    <p><i>Note : Log Endpoint Active berdasarka Tier 1 - Log 2 Minggu (0-14 hari), Tier 2 - Log 30 Hari (15 - 30 hari), dan Tier 3 - Log 60 Hari (31 hari - 60 hari).</i></p>
-    </section>
-    <footer>© Copyright : 2026 Local TNT</footer>
-   
+        <div class="flow-grid">
+          <!-- Flow 1 -->
+          <div class="flow-card">
+            <h4>Log Endpoint Active &amp; High Avg Duration</h4>
+            <ol class="steps">
+              <li>Modify Waktu sesuai dengan periode yang diinginkan.</li>
+              <li>Klik Option (titik 3) pada bagian <strong>Total By Endpoint</strong> lalu pilih <em>more</em> dan <em>maximize</em>.</li>
+              <li>Setelah data log muncul, team helpdesk dapat melihat informasi <code>execution_time_ms</code> dan <code>response_body_length</code> pada masing-masing endpoint.</li>
+              <li>Team helpdesk dapat mendownload/export data pada menu Option (titik 3).</li>
+            </ol>
+          </div>
+          
+          <!-- Flow 2 -->
+          <div class="flow-card">
+            <h4>Log Failed &amp; Exception</h4>
+            <ol class="steps">
+              <li>Buat Filter request berdasarkan Log request <strong>Failed &amp; Exception</strong>.</li>
+              <li>Modify Waktu sesuai dengan periode yang diinginkan.</li>
+              <li>Klik Option (titik 3) pada bagian <strong>Detail Request</strong> lalu pilih <em>more</em> dan <em>maximize</em>.</li>
+              <li>Setelah data log muncul, team helpdesk dapat melihat informasi log error secara detail pada masing-masing endpoint.</li>
+              <li>Team helpdesk dapat mendownload/export data pada menu Option (titik 3).</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="note">
+          <p><strong>Note:</strong> Log Endpoint Active berdasarkan Tier 1 - Log 2 Minggu (0-14 hari), Tier 2 - Log 30 Hari (15 - 30 hari), dan Tier 3 - Log 60 Hari (31 hari - 60 hari).</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>© Copyright 2026 Local TNT</footer>
+
+  <script>
+    (function () {
+      // Fitur copy ke clipboard
+      document.querySelectorAll('[data-copy]').forEach(function (b) {
+        b.onclick = function () {
+          var t = b.textContent;
+          navigator.clipboard.writeText(b.dataset.copy).then(function () {
+            b.textContent = 'Tersalin'; 
+            setTimeout(function () { b.textContent = t; }, 1500);
+          });
+        };
+      });
+
+      // Highlight navigasi saat scroll
+      var links = document.querySelectorAll('.toc a');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            if (e.isIntersecting) {
+              links.forEach(function (a) {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+              });
+            }
+          });
+        }, { rootMargin: '-30% 0px -60% 0px' });
+        
+        document.querySelectorAll('section[id]').forEach(function (s) { io.observe(s); });
+      }
+    })();
+  </script>
 </body>
-
-</html> 
+</html>

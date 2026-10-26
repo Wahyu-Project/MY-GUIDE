@@ -1,22 +1,19 @@
 <?php 
-$host = "localhost";
-$port = "5432";
-$dbname = "MY_GUIDE";
-$user = "postgres";
-$password = "DB123";
+// Data kredensial dari Neon DB
+$host = "ep-royal-paper-a1wz75yt-pooler.ap-southeast-1.aws.neon.tech";
+$port = "5432"; // Port bawaan PostgreSQL
+$dbname = "neondb";
+$user = "neondb_owner";
+$password = "npg_SrRI5Cqdhy9e";
 
-
-$connection_string = "host=$host port=$port dbname=$dbname user=$user password=$password";
+// Format Key-Value (Tambahkan sslmode=require wajib untuk Neon DB)
+$connection_string = "host=$host port=$port dbname=$dbname user=$user password=$password sslmode=require";
 
 // Lakukan koneksi
 $db = pg_connect($connection_string);
 
-// Pengecekan tidak memakai ->connect, melainkan mengecek nilai kembalian $db
-/*if ($db) {
-    echo "Koneksi database PostgreSQL berhasil!";
-} else {
-    echo "Koneksi gagal terjadi masalah.<br>";
-    die("Matot!");
-} */
-
+// Pengecekan koneksi (bisa dihapus atau diberi komentar jika aplikasi sudah jalan)
+if (!$db) {
+    die("Koneksi gagal terjadi masalah.");
+}
 ?>
