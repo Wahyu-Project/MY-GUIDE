@@ -13,7 +13,7 @@
   <div class="hero-grid">
     <div>
       <h1>Monitoring Master & DB (Telegram)</h1>
-      <p>Monitoring Master & DB (Telegram) adalah bagian dari layanan singkronisasi (DSP), yang befungsi untuk melihat status service pada layanan singkronisasi (DSP).</p>
+      <p>Monitoring Master & DB (Telegram) adalah bagian dari layanan sinkronisasi (DSP), yang berfungsi untuk melihat status service pada layanan sinkronisasi (DSP).</p>
     </div>
   </div>
 </header>
@@ -22,7 +22,7 @@
   <nav class="toc" aria-label="Daftar isi">
     <ul>
       <li><a href="#akses">Informasi Akun</a></li>
-      <li><a href="#menu">Landing Page Menu</a></li>
+      <li><a href="#menu">Flow Monitoring Service</a></li>
     </ul>
   </nav>
 
@@ -30,21 +30,28 @@
 
     <section id="akses">
       <h2><span class="sec-no">1.</span>Informasi User Akun</h2>
-      <p class="lead">Master & DB (Telegram) dapat di akses menggunakan akun number 08811237095 dan untuk dapat login team helpdesk bisa berkoordinasi dengan Pak Ahmad Sandi selaku user dari number akun tersebut</p>
+      <p class="lead">Master & DB (Telegram) dapat diakses menggunakan akun nomor 08811237095. Untuk dapat login, team helpdesk bisa berkoordinasi dengan Pak Ahmad Sandi selaku user dari nomor akun tersebut.</p>
     </section>
 
     <section id="menu">
       <h2><span class="sec-no">2.</span>Flow Monitoring Service</h2>
-      <p class="lead">Ketika anda berhasil login Telegram menggunakan akun number 08811237095, team helpdesk bisa masuk ke grub SIG MONITORING lalu masuk ke menu notifikasi MASTER & DB dan akan terlihat detail status service seperti contoh gambar dibawah ini. </p>
+      <p class="lead">Ketika Anda berhasil login Telegram menggunakan akun nomor 08811237095, team helpdesk bisa masuk ke grup SIG MONITORING lalu masuk ke menu notifikasi MASTER & DB dan akan terlihat detail status service seperti contoh gambar di bawah ini.</p>
       
-      <!-- Pastikan file gambar Console.jpg berada di folder yang sama -->
-      <img src="/DSP/Telegram/Service_down.jpg" alt="Service_down" class="img">
+      <!-- Pastikan file gambar Service_down.jpg berada di folder yang sama -->
+      <img src="/DSP/Telegram/Service_down.jpg" alt="Service down" class="img">
       
       <dl class="feat">
-        <div><dt>Master UP ✅</dt><dd>adalah informasi status service aktif.</dd></div>
-       
-        <div><dt>Master Down 🚩</dt><dd>adalah informasi status service Down atau tidak aktif akibat server down atau after restart server sehingga perlu start up pada service aplikasi melalui PAM untuk proses start up agar service kembali aktif bisa ikuti dan klik panduan berikut : <a class="Link" href=".././Start_Service/Start_service_DSP.html">Start Service DSP</a> </dd>
-          </div>
+        <div>
+          <dt>Master UP ✅</dt>
+          <dd>Adalah informasi status service aktif.</dd>
+        </div>
+        <div>
+          <dt>Master Down 🚩</dt>
+          <dd>
+            Adalah informasi status service Down atau tidak aktif akibat server down atau after restart server. Sehingga perlu start up pada service aplikasi melalui PAM agar service kembali aktif, bisa ikuti dan klik panduan berikut: 
+            <a class="Link" href="../Start_Service/Start_service_DSP.html">Start Service DSP</a>
+          </dd>
+        </div>
       </dl>
     </section>
 
@@ -53,5 +60,22 @@
 
 <footer>© Copyright 2026 Local TNT</footer>
 
+<script>
+  // Highlight bagian navigasi saat di-scroll
+  var links = document.querySelectorAll('.toc a');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) {
+          links.forEach(function (a) {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    
+    document.querySelectorAll('section[id]').forEach(function (s) { io.observe(s); });
+  }
+</script>
 </body>
 </html>

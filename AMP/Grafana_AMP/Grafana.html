@@ -15,8 +15,7 @@
     <div class="hero-grid">
       <div>
         <h1>Tools Grafana</h1>
-        <p>Tools Grafana membantu mempermudah dalam proses pemantauan (monitoring) data operasional usage
-          terhadap resource server AMP secara real-time.</p>
+        <p>Tools Grafana membantu mempermudah dalam proses pemantauan (monitoring) data operasional usage terhadap resource server AMP secara real-time.</p>
       </div>
     </div>
   </header>
@@ -35,8 +34,7 @@
 
       <section id="dashboard">
         <h2><span class="sec-no">1.</span>Grafana Dashboard</h2>
-        <p class="lead">Halaman utama Grafana-Dashboard memberikan ringkasan menyeluruh (overview) mengenai data
-          usage CPU, Memory dan Disk secara real-time. Akses Grafana dengan link berikut:</p>
+        <p class="lead">Halaman utama Grafana-Dashboard memberikan ringkasan menyeluruh (overview) mengenai data usage CPU, Memory dan Disk secara real-time. Akses Grafana dengan link berikut:</p>
 
         <dl class="cred">
           <div>
@@ -50,36 +48,27 @@
           <img src="Grafana Dashboard.jpg" alt="Grafana Dashboard" class="img">
         </figure>
 
-        <p>Fokus monitoring pada pergerakan grafik CPU, MEMORY dan DISK. Pastikan pada fitur
-          <strong>JOB</strong> pilih <strong>aws-linux</strong>, dan <strong>Host</strong> pilih Server AMP
-          yang
-          diinginkan. Berikut adalah fungsi monitoring tiap grafik:
-        </p>
+        <p>Fokus monitoring pada pergerakan grafik CPU, MEMORY dan DISK. Pastikan pada fitur <strong>JOB</strong> pilih <strong>aws-linux</strong>, dan <strong>Host</strong> pilih Server AMP yang diinginkan. Berikut adalah fungsi monitoring tiap grafik:</p>
 
         <div class="metrics">
           <article class="metric m-cpu">
             <h3>AMP Server CPU</h3>
-            <p>Memantau tren beban prosesor server dari waktu ke waktu. Jika ada garis yang melonjak tajam
-              (spike), itu menandakan adanya proses komputasi yang berat pada server.</p>
+            <p>Memantau tren beban prosesor server dari waktu ke waktu. Jika ada garis yang melonjak tajam (spike), itu menandakan adanya proses komputasi yang berat pada server.</p>
           </article>
           <article class="metric m-mem">
             <h3>AMP Server Memory</h3>
-            <p>Memantau penggunaan RAM. Garis datar berarti stabil, sebaliknya lonjakan tajam (spike)
-              umumnya disebabkan oleh peningkatan trafik atau query data yang masif.</p>
+            <p>Memantau penggunaan RAM. Garis datar berarti stabil, sebaliknya lonjakan tajam (spike) umumnya disebabkan oleh peningkatan trafik atau query data yang masif.</p>
           </article>
           <article class="metric m-disk">
             <h3>AMP Server Disk</h3>
-            <p>Memantau penggunaan ruang penyimpanan. Lonjakan tajam (spike) menandakan terdapat proses
-              tulis/baca yang intensif seperti backup, migrasi file besar, atau query basis data yang
-              berat.</p>
+            <p>Memantau penggunaan ruang penyimpanan. Lonjakan tajam (spike) menandakan terdapat proses tulis/baca yang intensif seperti backup, migrasi file besar, atau query basis data yang berat.</p>
           </article>
         </div>
       </section>
 
       <section id="fitur">
         <h2><span class="sec-no">2.</span>Fitur Grafana-Dashboard</h2>
-        <p class="lead">Dibuat untuk mempermudah pemantauan data secara fleksibel. Team Helpdesk bisa bebas
-          menyesuaikan rentang waktu hingga tingkat detail grafik tanpa perlu merubah konfigurasi backend.</p>
+        <p class="lead">Dibuat untuk mempermudah pemantauan data secara fleksibel. Team Helpdesk bisa bebas menyesuaikan rentang waktu hingga tingkat detail grafik tanpa perlu merubah konfigurasi backend.</p>
 
         <figure>
           <img src="Fiture Grafana.jpg" alt="Fitur Grafana" class="img">
@@ -88,18 +77,15 @@
         <dl class="feat">
           <div>
             <dt>Job</dt>
-            <dd>Sebagai filter variabel dinamis untuk menyaring dan mengelompokkan data metrik berdasarkan
-              layanan server.</dd>
+            <dd>Sebagai filter variabel dinamis untuk menyaring dan mengelompokkan data metrik berdasarkan layanan server.</dd>
           </div>
           <div>
             <dt>Interval (Grafik)</dt>
-            <dd>Menentukan jarak atau pemisahan rentang waktu antar titik data pada grafik (contoh: data
-              dikelompokkan setiap 5 menit sekali).</dd>
+            <dd>Menentukan jarak atau pemisahan rentang waktu antar titik data pada grafik (contoh: data dikelompokkan setiap 5 menit sekali).</dd>
           </div>
           <div>
             <dt>Host</dt>
-            <dd>Team Helpdesk dapat memilih server yang ingin ditampilkan informasi detail tren pergerakan
-              grafik penggunaannya.</dd>
+            <dd>Team Helpdesk dapat memilih server yang ingin ditampilkan informasi detail tren pergerakan grafik penggunaannya.</dd>
           </div>
           <div>
             <dt>Instance</dt>
@@ -107,47 +93,40 @@
           </div>
           <div>
             <dt>Time Setting</dt>
-            <dd>Menentukan cakupan rentang waktu riwayat data yang ingin ditampilkan (mulai dari 1 jam
-              terakhir (1h), 1 hari (1d), hingga Custom).</dd>
+            <dd>Menentukan cakupan rentang waktu riwayat data yang ingin ditampilkan (mulai dari 1 jam terakhir (1h), 1 hari (1d), hingga Custom).</dd>
           </div>
           <div>
             <dt>Refresh Interval</dt>
-            <dd>Menentukan seberapa sering sistem memuat ulang (auto-refresh) data di dashboard secara
-              otomatis (contoh: diperbarui setiap 1 menit).</dd>
+            <dd>Menentukan seberapa sering sistem memuat ulang (auto-refresh) data di dashboard secara otomatis (contoh: diperbarui setiap 1 menit).</dd>
           </div>
         </dl>
       </section>
 
       <section id="threshold">
         <h2><span class="sec-no">3.</span>Threshold (Ambang Batas)</h2>
-        <div class="callout"><b>80%</b><span>Ambang batas yang disepakati team SIG. Digunakan sebagai acuan
-            apakah kondisi CPU, Memory, atau Disk masih normal atau kritis.</span></div>
-        <p class="lead">Langkah-langkah yang harus dilakukan bila usage mencapai atau melebihi threshold 80%:
-        </p>
+        <div class="callout">
+          <b>80%</b>
+          <span>Ambang batas yang disepakati team SIG. Digunakan sebagai acuan apakah kondisi CPU, Memory, atau Disk masih normal atau kritis.</span>
+        </div>
+        <p class="lead">Langkah-langkah yang harus dilakukan bila usage mencapai atau melebihi threshold 80%:</p>
 
         <ol class="steps">
           <li>Cek Status Server pada PAM (CyberArk).</li>
-          <li>Eskalasi ke team Synxchro (Mas Anggi) untuk pengecekan lebih lanjut, lampirkan capture grafik dan
-            status server di CyberArk.</li>
-          <li>Secara paralel informasikan ke user/PIC dari SIG bahwa terdapat penggunaan mencapai/melebihi
-            threshold 80% dan sedang dilakukan pengecekan.</li>
+          <li>Eskalasi ke team Synxchro (Mas Anggi) untuk pengecekan lebih lanjut, lampirkan capture grafik dan status server di CyberArk.</li>
+          <li>Secara paralel informasikan ke user/PIC dari SIG bahwa terdapat penggunaan mencapai/melebihi threshold 80% dan sedang dilakukan pengecekan.</li>
           <li>Setelah pengecekan, informasikan Root Cause dan Action atau mitigasi dari hasil pengecekan.</li>
-          <li>Input ke file data log Spike. Bila menyebabkan kendala pada server, masukan ke Incident Report
-            sebagai dokumentasi bila dibutuhkan User.</li>
+          <li>Input ke file data log Spike. Bila menyebabkan kendala pada server, masukan ke Incident Report sebagai dokumentasi bila dibutuhkan User.</li>
         </ol>
       </section>
 
       <section id="lost">
         <h2><span class="sec-no">4.</span>Lost Grafik</h2>
-        <p class="lead">Lost Grafik bisa disebabkan karena Server Down atau adanya restart aplikasi pengumpul
-          metrik (Prometheus) setelah aktifitas housekeeping.</p>
+        <p class="lead">Lost Grafik bisa disebabkan karena Server Down atau adanya restart aplikasi pengumpul metrik (Prometheus) setelah aktifitas housekeeping.</p>
 
         <ol class="steps">
           <li>Cek Status Server pada PAM (CyberArk).</li>
-          <li>Eskalasi ke team Synxchro (Mas Adam) untuk pengecekan lebih lanjut, lampirkan capture lost
-            grafik dan status server di CyberArk.</li>
-          <li>Secara paralel informasikan ke user/PIC dari SIG bahwa terdapat lost grafik dan sedang dilakukan
-            pengecekan.</li>
+          <li>Eskalasi ke team Synxchro (Mas Adam) untuk pengecekan lebih lanjut, lampirkan capture lost grafik dan status server di CyberArk.</li>
+          <li>Secara paralel informasikan ke user/PIC dari SIG bahwa terdapat lost grafik dan sedang dilakukan pengecekan.</li>
           <li>Setelah pengecekan, informasikan Root Cause dan Action atau mitigasi dari hasil pengecekan.</li>
           <li>Input ke file data Incident Report sebagai dokumentasi bila dibutuhkan User.</li>
         </ol>

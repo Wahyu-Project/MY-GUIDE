@@ -2,6 +2,7 @@
 
 :root {
   --green :darkgreen ;
+  --royal-blue:#4169E1;
   --bg: #eef3f2;
   --surface: #ffffff;
   --ink: #12302f;
@@ -13,6 +14,7 @@
   --head: 'Bricolage Grotesque', 'Segoe UI', sans-serif;
   --body: 'Figtree', 'Segoe UI', Tahoma, sans-serif;
   --mono: 'IBM Plex Mono', Consolas, monospace;
+  
 }
 :root { color-scheme: light; }
 
@@ -50,7 +52,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f5b700; outline-offs
 /* ---------- Dashboard Grid Layout ---------- */
 .dashboard-grid {
   max-width: 1100px; 
-  margin: -40px auto 40px; /* Menarik grid ke atas agar menimpa header sedikit */
+  margin: -40px auto 40px; 
   padding: 0 clamp(16px, 4vw, 32px); 
   display: grid; 
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
@@ -73,11 +75,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f5b700; outline-offs
   box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
-/* Garis warna unik untuk tiap card */
-.card-profil { border-top: 6px solid #2f5fd0; } /* Biru */
-.card-amp { border-top: 6px solid darkgreen; }    /* Hijau Brand */
-.card-dsp { border-top: 6px solid #d9531e; }    /* Orange */
-.card-sd1 { border-top: 6px solid #55706e !important;; }
+.card-profil { border-top: 6px solid #2f5fd0; } 
+.card-amp { border-top: 6px solid #429e6a; }    
+.card-dsp { border-top: 6px solid royalblue }    
+.card-sd1 { border-top: 6px solid #d9531e; }
 
 .card h2 { 
   font-family: var(--head); 
@@ -115,11 +116,9 @@ a:focus-visible, button:focus-visible { outline: 3px solid #f5b700; outline-offs
   background: var(--surface);
   border-color: var(--brand);
   color: var(--brand);
-  transform: translateX(6px); /* Efek maju sedikit saat di-hover */
+  transform: translateX(6px); 
   box-shadow: 0 4px 12px rgba(15, 107, 92, 0.1);
 }
-
-/* Styling untuk menu yang belum ada link-nya */
 .list-group .inactive {
   color: var(--muted);
   cursor: not-allowed;
@@ -142,4 +141,190 @@ footer {
 @media (max-width: 768px) {
   .dashboard-grid { grid-template-columns: 1fr; margin-top: 24px; }
   .header { padding: 32px 24px 48px; }
+}
+
+/* ======== TAMBAHAN CSS UNTUK KALKULATOR ======== */
+
+/* Wrapper untuk menyejajarkan 2 kalkulator menggunakan Grid */
+.kalkulator-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 28px;
+    margin-top: 10px;
+}
+
+/* Memastikan Wrapper menempati seluruh ruang kolom yang ada */
+.full-width {
+    grid-column: 1 / -1; 
+}
+
+/* Container Utama masing-masing Kalkulator */
+.calculator-card {
+    background-color: #ffffff;
+    width: 100%; /* Kembalikan ke 100%, Grid pembungkus yang akan mengatur pembagian lebarnya */
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Ungu/Indigo */
+.card-header {
+    background-color: royalblue;
+    color: white;
+    padding: 16px;
+    text-align: center;
+}
+
+.card-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    padding-bottom: 5px;
+    border-bottom: none;
+    color: white;
+}
+
+.card-header p {
+    font-size: 14px;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* Layout Body */
+.card-body {
+    display: flex;
+    padding: 24px;
+    gap: 20px;
+    flex-wrap: wrap; /* Memungkinkan input dan hasil menumpuk di layar HP */
+    flex-grow: 1; /* Memastikan body mengisi ruang kosong agar tinggi card sama */
+}
+
+/* Area Input */
+.input-section {
+    flex: 1;
+    min-width: 50px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.input-section-tier {
+    flex: 1;
+    min-width: 35px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #4b5563;
+}
+
+.input-group input {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.input-group input:focus:not([readonly]) {
+    border-color: royalblue;
+    box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.2);
+}
+
+.input-group input[readonly] {
+    background-color: #f9fafb;
+    color: #6b7280;
+    cursor: not-allowed;
+}
+
+/* Area Hasil */
+.result-section {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.result-section-tier {
+    flex: 1;
+    min-width: 290px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Box SLA Utama (Hijau) */
+.highlight-result {
+    background: #429e6a; 
+    color: white;
+    padding: 5px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.highlight-result span {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.highlight-result h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 4px 0 0 0;
+    border-bottom: none;
+    color: white;
+}
+
+/* Grid Detail Bawah */
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.detail-box {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    padding: 10px 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-label {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.detail-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Warna khusus untuk Header Kalkulator Tier Log */
+.bg-orange {
+    background-color: #f97316 !important;
 }
